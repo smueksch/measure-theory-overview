@@ -1,0 +1,427 @@
+\documentclass[10pt,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[portrait]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{etoolbox} % Required for \appto.
+\usepackage{centernot}
+
+\usepackage{xargs}
+
+\usepackage{ifthen}
+
+% Define emphasis to be bold face and italic.
+\DeclareTextFontCommand{\emph}{\bfseries\em}
+
+% Removes most of whitespace above and below equations.
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{-5pt}% Default: 12pt plus 3pt minus 9pt
+  \setlength{\belowdisplayskip}{3pt}% Default: 0pt plus 3pt
+  \setlength{\abovedisplayshortskip}{-5pt}% Default: 12pt plus 3pt minus 9pt
+  \setlength{\belowdisplayshortskip}{3pt}% Default: 7pt plus 3pt minus 4pt
+}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem Environment Setup %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+
+% New environments for definitions and theorems. These will let us put in the
+% exact reference to the definition/theorems in the notes, e.g.
+%
+% \begin{definition}{5.1.1}
+%     ...
+% \end{definition}
+%
+% to create a definition with title "Definition 5.1.1", referencing the
+% definition with the same number in the notes.
+\newenvironment{definition}[1] {
+    \par\addvspace{\topsep}
+    \noindent\textbf{Definition #1}.
+    \ignorespaces
+}
+
+\newenvironmentx{theorem}[2][\empty] {
+
+    \newcommand{\Title}{Theorem}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{lemma}[2][\empty] {
+
+    \newcommand{\Title}{Lemma}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+
+\newenvironmentx{proposition}[2][\empty] {
+
+    \newcommand{\Title}{Proposition}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{corollary}[2][\empty] {
+
+    \newcommand{\Title}{Corollary}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{remark}[2][\empty] {
+
+    \newcommand{\Title}{Remark}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{example}[2][\empty] {
+
+    \newcommand{\Title}{Example}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{exercise}[2][\empty] {
+
+    \newcommand{\Title}{Exercise}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{question}[2][\empty] {
+
+    \newcommand{\Title}{Question}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commands for Mathematical Typesetting %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Redefine \leq and \geq to something nicer looking:
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% Inner Product:
+\DeclareRobustCommand{\InnerProduct}[2]{
+    \ifmmode
+        \left( #1,#2 \right)
+    \else
+        \GenericError{\space\space\space\space}
+        {Attempting to use \InnerProduct outside of math mode}
+    \fi
+}
+
+% Vector Norm: 
+\DeclareRobustCommand{\Norm}[1]{
+    \ifmmode
+        \left\lVert #1 \right\rVert
+    \else
+        \GenericError{\space\space\space\space}
+        {Attempting to use \Norm outside of math mode}
+    \fi
+}
+
+% Principle Argument of Complex Number:
+\DeclareMathOperator{\Arg}{Arg}
+
+% Principle Branch of Logarithm of Complex Number:
+\DeclareMathOperator{\Log}{Log}
+
+% Image of Function:
+\DeclareMathOperator{\im}{im}
+
+% Real part of complex number:
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+
+% Imaginary part of complex number:
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+% Interior of a Curve:
+\DeclareMathOperator{\Int}{Int}
+
+% Exterior of a Curve:
+\DeclareMathOperator{\Ext}{Ext}
+
+% Residue of Function at Singularity:
+\DeclareMathOperator{\Res}{Res}
+
+% Proof Hint:
+\newcommand{\Hint}{\textit{Hint: }}
+
+% Sigma-Algebra:
+\newcommand{\SigmaAlgebra}{$\sigma$-algebra}
+
+% Indicator Function:
+\newcommand{\Indicator}[1]{\mathbf{1}_{#1}}
+
+% Calligraphic F:
+\newcommand{\CalF}{\mathcal{F}}
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometdry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+\begin{document}
+\raggedright
+\footnotesize
+\begin{multicols}{3}
+
+
+% multicols parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+\setlength{\columnseprule}{0.4pt} % For vertical lines separating columns.
+
+\begin{center}
+     \Large{Essentials in Analysis \& Probability} \\
+     \footnotesize{Sebastian Müksch, v1, 2019/20}
+\end{center}
+
+%%%%%%%%%%%%%%%%%
+% Basic Notions %
+%%%%%%%%%%%%%%%%%
+
+\begin{example}{1.1}{}
+
+    Simplest \SigmaAlgebra:
+
+        \begin{itemize}
+            \setlength{\parskip}{0em}
+            \item $\{\emptyset, \Omega\}$, \emph{contained in every} \SigmaAlgebra on $\Omega$,
+            \item Family of all subsets of $\Omega$, \emph{containing every} \SigmaAlgebra on $\Omega$.
+        \end{itemize}
+
+\end{example}
+
+\begin{exercise}{1.1}{}
+
+    Let $\CalF$ be a \SigmaAlgebra. Then $A_n \in \CalF$ for every integer $n \geq 1$ $\Rightarrow \bigcap_{n=1}^{\infty} A_n \in \CalF$.
+
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Expectation Integral %
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Expectation Integrals}
+
+\begin{exercise}{3.5}{}
+
+    Let $A \in \CalF$ s.t. $\mu(A) = 0$. Then for \emph{any} measurable function $f: \Omega \to \overline{\mathbb{R}}$:
+    
+        \begin{align*}
+            \int_A f \,d\mu = 0.
+        \end{align*}
+
+\end{exercise}
+
+\begin{theorem}{3.8}{Monotone Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be increasing sequence of non-negative, measurable functions $f_n: \Omega \to \overline{\mathbb{R}}$, converging to some $f$. Then:
+
+        \begin{align*}
+            \int_{\Omega} \lim_{n \to \infty} f_n \,d\mu = \lim_{n \to \infty} \int_{\Omega} f_n \,d\mu
+        \end{align*}
+
+\end{theorem}
+
+\begin{proposition}{3.18}{Markov-Chebyshev's Inequality}
+
+    Let $X$ be a \emph{non-negative} R.V., then
+
+        \begin{align*}
+            P(X \geq \lambda) \leq \lambda^{-\alpha} E(X^{\alpha}) \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+\end{proposition}
+
+\begin{remark}{3.3}{}
+
+    Let $(\Omega, \mathcal{F}, \mu)$ be measure space, $f: \Omega \to \overline{\mathbb{R}}$ \emph{non-negative} $\mathcal{F}$-measurable, then
+
+        \begin{align*}
+            \mu(f \geq \lambda) \leq \lambda^{-\alpha} \int_{\Omega} f^{\alpha} \,d\mu \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+\end{remark}
+
+%%%%%%%%%%%%%%%
+% Definitions %
+%%%%%%%%%%%%%%%
+
+\begin{definition}{1.1}
+
+    Let $\mathcal{F}$ be a family of subsets of set $\Omega$. $\mathcal{F}$ is called a \emph{$\sigma$-algebra} if:
+
+        \begin{itemize}
+            \setlength{\parskip}{0em}
+            \item \emph{Closed Under Complement}: $A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F}$,
+            \item \emph{Closed Under Arbitrary Union}: $A_n \in \mathcal{F}$ for integer $n \geq 1$ $\Rightarrow \bigcup_{n=1}^{\infty}A_n \in \mathcal{F}$,
+            \item \emph{Contains Entire Set}: $\Omega \in \mathcal{F}$
+        \end{itemize}
+
+\end{definition}
+
+\begin{definition}{1.2}
+    Let $\mathcal{C}$ be a family of subsets of $\Omega$. There exists a $\sigma$-algebra which contains $\mathcal{C}$ \emph{and} which is contained in every $\sigma$-algebra that contains $\mathcal{C}$ (take intersection of all $\sigma$-algebras. Such $\sigma$-algebra is \emph{unique} and called \emph{smallest $\sigma$-algebra containing $\mathcal{C}$} or \emph{$\sigma$-algebra generated by $\mathcal{C}$}, denoted by $\sigma(\mathcal{C})$. Simplest example, let $A \subseteq \Omega$:
+
+        \begin{align*}
+            \sigma(A) = \{\emptyset, A, A^c, \Omega\}.
+        \end{align*}
+\end{definition}
+
+\begin{definition}{2.1.1}
+
+    Let $A \subseteq \Omega$ and $\Indicator{A}$ be defined as follows:
+
+        \begin{align*}
+            \Indicator{A}(\omega) =
+            \begin{cases}
+                1, & \omega \in A \\
+                0, & \omega \not\in A
+            \end{cases}.
+        \end{align*}
+
+    Then $\Indicator{A}$ is a R.V. and called the \emph{indicator (function) of (events) A}.
+
+\end{definition}
+
+\end{multicols}
+
+\end{document}
