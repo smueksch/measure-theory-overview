@@ -309,7 +309,7 @@
 \setlength{\columnseprule}{0.4pt} % For vertical lines separating columns.
 
 \begin{center}
-     \Large{Essentials in Analysis \& Probability} \\
+     \Large{Measure Theory \& Probability} \\
      \footnotesize{Sebastian Müksch, v1, 2019/20}
 \end{center}
 
@@ -381,9 +381,23 @@
 
 \end{remark}
 
+\begin{proposition}{}{Restricted Expectation}
+
+    Let $X$ be a random variable and $A \in \CalF$, then:
+
+        \begin{align*}
+            E(X \Indicator{A}) = \int_A X \,dP.
+        \end{align*}
+
+\end{proposition}
+
 %%%%%%%%%%%%%%%
 % Definitions %
 %%%%%%%%%%%%%%%
+
+\section{Definitions}
+
+\textit{In the following, $\Omega$ is a set, $\CalF$ a \SigmaAlgebra\ on $\Omega$. If used, then $\mu$ is a measure. Otherwise, the measure is the probability measure $P$.}
 
 \begin{definition}{1.1}
 
@@ -419,6 +433,44 @@
         \end{align*}
 
     Then $\Indicator{A}$ is a R.V. and called the \emph{indicator (function) of (events) A}.
+
+\end{definition}
+
+\begin{definition}{2.1.1}
+
+    Let $A \subset \Omega$, then:
+
+        \begin{align*}
+            \int_{\Omega} \Indicator{A} \,d\mu = \mu(A).
+        \end{align*}
+
+\end{definition}
+
+\begin{definition}{(Lebesgue Integral for Expectation)}
+
+    Let $X$ be a random variable. Then we write:
+
+        \begin{align*}
+            EX = \int_{\Omega} X \,dP.
+        \end{align*}
+
+\end{definition}
+
+\begin{definition}{(Unknown)}
+
+    Let $A \in \CalF$ and $f: \Omega \to \overline{\mathbb{R}}$ is a measurable function, then we define:
+
+        \begin{align*}
+            \int_A f \, d\mu = \int_{\Omega} \Indicator{A} f \, d\mu,
+        \end{align*}
+
+    when the integral of $\Indicator{A} f$ w.r.t $\mu$ exists.
+
+\end{definition}
+
+\begin{definition}{(Unknown)}
+
+    Let $X$ be a random variable. Then $X$ has \emph{finite second moment} if $EX^2 < \infty$.
 
 \end{definition}
 
