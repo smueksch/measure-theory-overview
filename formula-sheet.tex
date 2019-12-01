@@ -253,6 +253,9 @@
 % Calligraphic F:
 \newcommand{\CalF}{\mathcal{F}}
 
+% Floor function:
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
 % This sets page margins to .5 inch if using letter paper, and to 1cm
 % if using A4 paper. (This probably isn't strictly necessary.)
 % If using another size paper, use default 1cm margins.
@@ -317,13 +320,15 @@
 % Basic Notions %
 %%%%%%%%%%%%%%%%%
 
+\section{Basic Notions and Notation}
+
 \begin{example}{1.1}{}
 
     Simplest \SigmaAlgebra:
 
         \begin{itemize}
             \setlength{\parskip}{0em}
-            \item $\{\emptyset, \Omega\}$, \emph{contained in every} \SigmaAlgebra on $\Omega$,
+            \item $\{\emptyset, \Omega\}$, \emph{contained in every} \SigmaAlgebra \ on $\Omega$,
             \item Family of all subsets of $\Omega$, \emph{containing every} \SigmaAlgebra on $\Omega$.
         \end{itemize}
 
@@ -335,11 +340,62 @@
 
 \end{exercise}
 
+\begin{proposition}{(Unknown)}{}
+
+    Let $A, B \in \CalF$. Then $\mu(A \cap B) \leq \mu(A)$.
+
+    \Hint: $\sigma$-additivity and $A = (A \cap B) \cup (A \setminus B)$.
+
+\end{proposition}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Expectation Integral %
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Expectation Integrals}
+
+\begin{proposition}{(Unknown)}{}
+
+    Let $A,B \subset \Omega$. Then the following equalities hold:
+
+        \begin{itemize}
+            \setlength{\parskip}{0em}
+            \item $\Indicator{A^C} = 1 - \Indicator{A}$,
+            \item $\Indicator{A}\Indicator{B} = \Indicator{A \cap B}$.
+        \end{itemize}
+
+\end{proposition}
+
+\begin{lemma}{3.3}{}
+
+    Let $X$ be a \emph{non-negative} random variable. Then there exists a sequence of \emph{non-negative, simple} random variables $X_n$ converging to $X$ for every $\omega \in \Omega$.
+
+    \Hint: $h_n(x)=\min\{\floor{2^nx}/2^n, n\}$ is non-negative, simple and increasing, approaching $x$. Consider $X_n \coloneqq h(X) \to X$.
+
+\end{lemma}
+
+\begin{lemma}{}{Simple Function Integral Properties}
+
+    Let $f,g: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, simple functions and $a,b \geq 0$. Then the following holds:
+
+    \begin{itemize}
+        \item $\int_{\Omega} f \, d\mu \geq 0$,
+        \item $\int_{\Omega} (af + bg) \, d\mu = a\int_{\Omega} f + b\int_{\Omega}g \, d\mu$.
+    \end{itemize}
+
+\end{lemma}
+
+\begin{lemma}{3.3}{General}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function. The there exists a sequence $f_n$ of \emph{non-negative}, simple functions such that:
+
+    \begin{align*}
+        \lim_{n \to \infty} f_n = f
+    \end{align*}
+
+    \Hint: Use $h_n$ from Lemma 3.3's hint.
+
+\end{lemma}
 
 \begin{exercise}{3.5}{}
 
@@ -436,12 +492,22 @@
 
 \end{definition}
 
-\begin{definition}{2.1.1}
+\begin{definition}{(Indicator Integral)}
 
     Let $A \subset \Omega$, then:
 
         \begin{align*}
             \int_{\Omega} \Indicator{A} \,d\mu = \mu(A).
+        \end{align*}
+
+\end{definition}
+
+\begin{definition}{(Simple Function)}
+
+    Let $f: \Omega \to \mathbb{R}$ be a \emph{simple function}, then $f$ takes finitely many values. Formally, if $I$ is a finite index set, $(A_i)_{i \in I}$ a famility of \emph{disjoint} subsets of $\Omega$ and $(c_i)_{i \in I}$ a family of real numbers, then:
+
+        \begin{align*}
+            f(\omega) = \sum_{i \in I} c_i \Indicator{A_i}(\omega).
         \end{align*}
 
 \end{definition}
