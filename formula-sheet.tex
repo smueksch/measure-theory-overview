@@ -344,7 +344,7 @@
 
     Let $A, B \in \CalF$. Then $\mu(A \cap B) \leq \mu(A)$.
 
-    \Hint: $\sigma$-additivity and $A = (A \cap B) \cup (A \setminus B)$.
+    \Hint $\sigma$-additivity and $A = (A \cap B) \cup (A \setminus B)$.
 
 \end{proposition}
 
@@ -356,12 +356,13 @@
 
 \begin{proposition}{(Unknown)}{}
 
-    Let $A,B \subset \Omega$. Then the following equalities hold:
+    Let $A,B \subseteq \Omega$. Then the following equalities hold:
 
         \begin{itemize}
             \setlength{\parskip}{0em}
             \item $\Indicator{A^C} = 1 - \Indicator{A}$,
-            \item $\Indicator{A}\Indicator{B} = \Indicator{A \cap B}$.
+            \item $\Indicator{A \cap B} = \Indicator{A}\Indicator{B}$.
+            \item $\Indicator{A \cup B} = \Indicator{A} + \Indicator{B} - \Indicator{A \cap B}$.
         \end{itemize}
 
 \end{proposition}
@@ -370,7 +371,7 @@
 
     Let $X$ be a \emph{non-negative} random variable. Then there exists a sequence of \emph{non-negative, simple} random variables $X_n$ converging to $X$ for every $\omega \in \Omega$.
 
-    \Hint: $h_n(x)=\min\{\floor{2^nx}/2^n, n\}$ is non-negative, simple and increasing, approaching $x$. Consider $X_n \coloneqq h(X) \to X$.
+    \Hint $h_n(x)=\min\{\floor{2^nx}/2^n, n\}$ is non-negative, simple and increasing, approaching $x$. Consider $X_n \coloneqq h(X) \to X$.
 
 \end{lemma}
 
@@ -385,6 +386,12 @@
 
 \end{lemma}
 
+\begin{corollary}{}{Positive Integral over Set}
+
+    Let $A \subseteq \Omega$ and $f: \Omega \to \overline{\mathbb{R}}$ a \emph{non-negative} measurable function. Then $\int_A f \, d\mu \geq 0$.
+
+\end{corollary}
+
 \begin{lemma}{3.3}{General}
 
     Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function. The there exists a sequence $f_n$ of \emph{non-negative}, simple functions such that:
@@ -393,7 +400,7 @@
         \lim_{n \to \infty} f_n = f
     \end{align*}
 
-    \Hint: Use $h_n$ from Lemma 3.3's hint.
+    \Hint Use $h_n$ from Lemma 3.3's hint.
 
 \end{lemma}
 
@@ -404,6 +411,30 @@
         \begin{align*}
             \int_A f \,d\mu = 0.
         \end{align*}
+
+\end{exercise}
+
+\begin{exercise}{3.6}{}
+
+    Let $f: \Omega \to \mathbb{R}$ be a measurable function, then:
+
+        \begin{enumerate}[(i)]
+            \setlength{\parskip}{0em}
+            \item For any $c \in \mathbb{R}$ and $A \in \CalF$:
+
+                \begin{align*}
+                    \int_A cf \, d\mu = c \int_A f \, d\mu,
+                \end{align*}
+            
+            provided the integral exists.
+            \item For any $A, B \in \CalF$, such that $A \cap B = \emptyset$:
+
+                \begin{align*}
+                    \int_{A \cup B} f \,d\mu = \int_{A} f \,d\mu + \int_{B} f \,d\mu,
+                \end{align*}
+
+            provided the left-hand or right-hand side is well-defined.
+        \end{enumerate}
 
 \end{exercise}
 
@@ -446,6 +477,20 @@
         \end{align*}
 
 \end{proposition}
+
+\begin{lemma}{4.4}{Borel-Cantelli Lemma}
+
+    Let $(A)_{n=1}^{\infty}$ be a sequence of sets $A_n \in \CalF$ such that $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, i.e. the series of measures of $A_n$ converges. Then for:
+
+        \begin{align*}
+            A \coloneqq \limsup_{n \to \infty} A_n \coloneqq \bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_k,
+        \end{align*}
+
+    we have $\mu(A) = 0$.
+
+    \Hint Define $B_n \coloneqq \bigcup_{k=n}^{\infty} A_k$, then $(B_n)_{n=1}^\infty$ is decreasing and so $\bigcap_{n=1}^{\infty} B_n = \lim_{n \to \infty} B_n$ and realize that $\sum_{n=1}^{\infty} \mu(A_n) < \infty$ $\Rightarrow$ tail sums $\sum_{k=n}^{\infty} \mu(A_k) \to 0$ as $n \to \infty$.
+
+\end{lemma}
 
 %%%%%%%%%%%%%%%
 % Definitions %
@@ -494,7 +539,7 @@
 
 \begin{definition}{(Indicator Integral)}
 
-    Let $A \subset \Omega$, then:
+    Let $A \subseteq \Omega$, then:
 
         \begin{align*}
             \int_{\Omega} \Indicator{A} \,d\mu = \mu(A).
@@ -519,6 +564,28 @@
         \begin{align*}
             EX = \int_{\Omega} X \,dP.
         \end{align*}
+
+\end{definition}
+
+\begin{definition}{(Non-negative, Measurable Lebesgue Integral)}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function and $(f_n)_{n=1}^{\infty}$ a sequence of \emph{non-negative, simple} functions sucht that $\lim_{n \to \infty} f_n = f$. Then
+
+        \begin{align*}
+            \int_{\Omega} f \, d\mu = \lim_{n \to \infty} f_n \, d\mu.
+        \end{align*}
+
+\end{definition}
+
+\begin{definition}{(Lebesgue Integral)}
+
+     Let $f: \Omega \to \overline{\mathbb{R}}$ be a measurable function. The \emph{Lebesgue Integral} of $f$ is defined as:
+
+        \begin{align*}
+            \int_{\Omega} f \,d\mu = \int_{\Omega} f^+ \,d\mu - \int_{\Omega} f^- \,d\mu,
+        \end{align*}
+
+    where $f^+ = \max\{f, 0\}$ and $f^-=\max\{-f, 0\}$, if at least one of the integrals on the right-hand side is finite. If both are infinite, then we say that the Lebesgue Integral of $f$ does not exist.
 
 \end{definition}
 
