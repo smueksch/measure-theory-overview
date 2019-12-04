@@ -557,6 +557,36 @@
 
 \end{lemma}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Convergence of Measurable Functions %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Convergence of Measurable Functions}
+
+\begin{definition}{5.1}{$\mu$-Almost Everywhere Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge $\mu$-almost everywhere} to a \emph{$\mu$-a.e. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if there exists an $A \in \CalF$ s.t. $\mu(A) = 0$ and
+
+        \begin{align*}
+            \lim_{n \to \infty} f_n(\omega) = f(\omega) \in \mathbb{R}, \quad \forall \omega \in A^C.
+        \end{align*}
+
+    \emph{Notation:} $\lim_{n \to \infty} f_n = f$ ($\mu$-a.e.) or $f_n \to f$ ($\mu$-a.e.).
+
+\end{definition}
+
+\begin{definition}{5.1}{Almost Sure Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge almost surely} to a \emph{$\mu$-a.s. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if there exists an $A \in \CalF$ s.t. $P(A) = 0$ and
+
+        \begin{align*}
+            \lim_{n \to \infty} f_n(\omega) = f(\omega) \in \mathbb{R}, \quad \forall \omega \in A^C.
+        \end{align*}
+
+    \emph{Notation:} $\lim_{n \to \infty} f_n = f$ (a.s.) or $f_n \to f$ (a.s.).
+
+\end{definition}
+
 %%%%%%%%%%%%%%%
 % Definitions %
 %%%%%%%%%%%%%%%
@@ -684,6 +714,13 @@
 
 \end{definition}
 
+\begin{definition}{}{Almost Surely Finite}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be $\CalF$-measurable, then $f$ is said to be \emph{almost surely} (a.s.) finite if $P(|f| = \infty) = 0$ $\Leftrightarrow P(|f| < \infty) = 1$.
+
+\end{definition}
+
+
 \begin{definition}{(Unknown)}{}
 
     Let $X$ be a random variable. Then $X$ has \emph{finite second moment} if $EX^2 < \infty$.
@@ -695,6 +732,26 @@
 %%%%%%%%%%%
 
 \section{Tips and Tricks}
+
+\begin{trick}{}{$\mu$-Almost Everywhere Finite}
+
+    If $f: \Omega \to \mathbb{R}$ is $\mu$-a. e. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
+
+        \begin{align*}
+            \mu\left(\bigcap_{n=1}^{\infty} A_n\right) = \mu\left(\lim_{n \to \infty} A_n\right) = \mu(|f| = \infty) \\ = 0.
+        \end{align*}
+
+\end{trick}
+
+\begin{trick}{}{Almost Surely Finite}
+
+    If $f: \Omega \to \mathbb{R}$ is a. s. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
+
+        \begin{align*}
+            P\left(\bigcap_{n=1}^{\infty} A_n\right) = P\left(\lim_{n \to \infty} A_n\right) = P(|f| = \infty) \\ = 0.
+        \end{align*}
+
+\end{trick}
 
 \begin{trick}{}{Function As Integral}
 
