@@ -375,6 +375,46 @@
 
 \end{exercise}
 
+\begin{proposition}{1.2}{}
+
+    Let $P$ be a probability measure on \SigmaAlgebra\ $\CalF$. Then the following statements hold:
+
+        \begin{enumerate}[(i)]
+            \item $A, B \in \CalF$ s.t. $A \subseteq B$ $\Rightarrow$ $P(A) \leq P(B)$;
+            \item For \emph{increasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} P(A_n) = P\left(\bigcup_{n=1}^{\infty} A_n \right);
+                \end{align*}
+            \item For \emph{decreasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} P(A_n) = P\left(\bigcap_{n=1}^{\infty} A_n \right).
+                \end{align*}
+        \end{enumerate}
+
+\end{proposition}
+
+\begin{proposition}{1.2}{General}
+
+    Let $\mu$ be a measure on \SigmaAlgebra\ $\CalF$. Then the following statements hold:
+
+        \begin{enumerate}[(i)]
+            \item $A, B \in \CalF$ s.t. $A \subseteq B$ $\Rightarrow$ $\mu(A) \leq \mu(B)$;
+            \item For \emph{increasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} \mu(A_n) = \mu\left(\bigcup_{n=1}^{\infty} A_n \right);
+                \end{align*}
+            \item For \emph{decreasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} \mu(A_n) = \mu\left(\bigcap_{n=1}^{\infty} A_n \right).
+                \end{align*}
+        \end{enumerate}
+
+\end{proposition}
+
 \begin{proposition}{(Unknown)}{}
 
     Let $A, B \in \CalF$. Then $\mu(A \cap B) \leq \mu(A)$.
@@ -533,6 +573,56 @@
 
 \end{remark}
 
+\begin{lemma}{3.10}{Fatou's Lemma}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of \emph{non-negative}, measurable functions $f: \Omega \to \overline{\mathbb{R}}$, then
+
+        \begin{align*}
+            \int_{\Omega} \liminf_{n \to \infty} f_n \, d\mu \leq \liminf_{n \to \infty} \int_{\Omega} f_n \, d\mu.
+        \end{align*}
+
+\end{lemma}
+
+\begin{corollary}{3.11}{Fatou's Lemma Extension}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of measurable functions $f: \Omega \to \overline{\mathbb{R}}$. Then
+
+        \begin{enumerate}[(i)]
+            \item if there exists a $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$ such that $g \leq f_n$ for all $n$, then:
+
+            \begin{align*}
+                \int_{\Omega} \liminf_{n \to \infty} f_n \, d\mu \leq \liminf_{n \to \infty} \int_{\Omega} f_n \, d\mu.
+            \end{align*}
+            \item if there exists a $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$ such that $g \geq f_n$, then:
+
+            \begin{align*}
+                \int_{\Omega} \limsup_{n \to \infty} f_n \, d\mu \geq \limsup_{n \to \infty} \int_{\Omega} f_n \, d\mu.
+            \end{align*}
+        \end{enumerate}
+
+    \Hint TODO
+
+\end{corollary}
+
+\begin{theorem}{3.12}{Lebegue's Theorem on Dominated Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of Borel functions $f_n: \Omega \to \overline{\mathbb{R}}$ converging to some $f: \Omega \to \overline{\mathbb{R}}$. Assume there exists a (non-negative) Borel functions $g$ such that $|f_n| \leq g$ for any $n \geq 1$ and $\int_{\Omega} g \, d\mu < \infty$. Then the following two statements hold:
+
+        \begin{enumerate}[(i)]
+            \item
+                \begin{align*}
+                    \int_{\Omega} |f| \, d\mu < \infty,
+                \end{align*}
+            \item
+                \begin{align*}
+                    \int_{\Omega} f \, d\mu = \lim_{n \to \infty} \int_{\Omega} f \, d\mu.
+                \end{align*}
+        \end{enumerate}
+
+    \Hint TODO
+
+\end{theorem}
+
 \begin{proposition}{}{Restricted Expectation}
 
     Let $X$ be a random variable and $A \in \CalF$, then:
@@ -563,6 +653,32 @@
 
 \section{Convergence of Measurable Functions}
 
+\begin{exercise}{Ws 3, 1}{}
+
+    Let $\mu-\lim f_n = f$, then there exists a subsequence $(f_{n_k})_{k=1}^{\infty}$ such that $(n_k)_{k=1}^{\infty}$ is increasing and $f_{n_k} \to f$ ($\mu$-a.e.).
+
+    \Hint Borel-Cantelli with $A_k = \{ |f_{n_k} - f| \geq 1/k \}$ s.t. $\mu(A_k) \leq 1/k^2$.
+
+\end{exercise}
+
+\begin{exercise}{Ws 3, 2}{Convergence Implication}
+
+    Let $\mu(\Omega) < \infty$. Then $\lim_{n \to \infty} f_n = f$ ($\mu$-a.e.) $\Rightarrow$ $\mu-\lim_{n \to \infty} f_n = f$.
+
+\end{exercise}
+
+\begin{exercise}{Ws 3, 3}{Relaxed Domnitated Convergence}
+
+    Lebegue's Theorem on Dominated convergence holds under the following, relaxed conditions:
+
+        \begin{enumerate}[(i)]
+            \item $\lim_{n \to \infty} f_n = f$ \emph{$\mu$-a.e.},  $|f_n| \leq g|$ $\mu$-a.e. and $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$; and
+            \item $\mu-\lim_{n \to \infty} f_n = f$,  $|f_n| \leq g|$ $\mu$-a.e. and $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$.
+        \end{enumerate}
+
+    \Hint TODO
+
+\end{exercise}
 
 %%%%%%%%%%%%%%%
 % Definitions %
@@ -593,6 +709,12 @@
         \begin{align*}
             \sigma(A) = \{\emptyset, A, A^c, \Omega\}.
         \end{align*}
+\end{definition}
+
+\begin{definition}{}{Finite Measure Space}
+
+    Let $(\Omega, \CalF, \mu)$ be a measure space. If $\mu(\Omega) < \infty$, then we call the measure space \emph{finite}.
+
 \end{definition}
 
 \subsection{Random Variables}
