@@ -763,12 +763,53 @@
 
 \section{Useful Observations}
 
-\begin{observation}{}{$\mu$-Almost Everywhere Finite}
+\begin{observation}{}{Increasing Sequence of Sets}
+
+    For an \emph{increasing} sequence of sets $(A_n)_{n=1}^{\infty}$ we can define:
+
+        \begin{align*}
+            \lim_{n \to \infty} A_n \coloneqq \bigcup_{n=1}^{\infty} A_n
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Decreasing Sequence of Sets}
+
+    For an \emph{decreasing} sequence of sets $(A_n)_{n=1}^{\infty}$ we can define:
+
+        \begin{align*}
+            \lim_{n \to \infty} A_n \coloneqq \bigcap_{n=1}^{\infty} A_n
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Finite, I}
 
     If $f: \Omega \to \mathbb{R}$ is $\mu$-a. e. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
 
         \begin{align*}
             \mu\left(\bigcap_{n=1}^{\infty} A_n\right) = \mu\left(\lim_{n \to \infty} A_n\right) = \mu(|f| = \infty) \\ = 0.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Finite, II}
+
+    If $f: \Omega \to \mathbb{R}$ is $\mu$-a. e. finite, then observe
+
+        \begin{align*}
+            \mu(|f| = \infty) = \lim_{R \to \infty} \mu(|f| \geq R) = 0.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Almost Surely Finite, II}
+
+    If $f: \Omega \to \mathbb{R}$ is a.s. finite, then observe
+
+        \begin{align*}
+            P(|f| = \infty) = \lim_{R \to \infty} P(|f| \geq R) = 0. \\
+            \iff P(|f| < \infty) = \lim_{R \to \infty} P(|f| < R) = 1.
         \end{align*}
 
 \end{observation}
@@ -783,15 +824,49 @@
 
 \end{observation}
 
-\begin{observation}{}{$\mu$-Almost Everywhere Convergence}
+\begin{observation}{}{$\mu$-Almost Everywhere Convergence I}
 
     If $f_n \to f$ $\mu$-a.e., then $\mu(f_n \not\to f) = 0$.
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Convergence II}
+
+    If $A \in \CalF$ is a set such that $\mu(A) = 0$ and
+
+        \begin{align*}
+            \lim_{n \to \infty} |f_n(\omega) - f(\omega)| = 0 \quad \forall \omega \in A^C,
+        \end{align*}
+
+    then $f_n \to f$ $\mu$-almost everywhere.
 
 \end{observation}
 
 \begin{observation}{}{Almost Sure Convergence}
 
     If $f_n \to f$ a.s., then $P(f_n \not\to f) = 0$ or equivalently $P(f_n \to f) = 1$.
+
+\end{observation}
+
+\begin{observation}{}{Splitting Measures of Inequalities}
+
+    Let $f,g$ be measurable functions and $a \in \mathbb{R}$, then observe that:
+
+        \begin{align*}
+            \mu(|f| \geq a) \leq \mu\left( |f - g| \geq \frac{a}{2} \right) + \mu\left( |g| \geq \frac{a}{2} \right)
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Using Borel-Cantelli}
+
+    If you can define sets $(A_k)_{k=1}^{\infty}$ such that $\mu(A_k) \leq 1/k^2$, then you can use Borel-Cantelli as:
+
+        \begin{align*}
+            \sum_{k=1}^{\infty} \mu(A_k) \leq \sum_{k=1}^{\infty} \frac{1}{k^2} < \infty.
+        \end{align*}
+
+    In fact, the choice of $1/k^2$ is more or less arbitrary. This technique would work with any $r_k$ s.t. $\sum_{k=1}^{\infty} r_k < \infty$ and $\mu(A_k) \leq r_k$. Caution: $r_k = 1/k$ does \emph{not} work.
 
 \end{observation}
 
