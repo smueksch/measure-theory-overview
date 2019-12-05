@@ -50,9 +50,9 @@
 %    \ignorespaces
 %}
 
-\newenvironmentx{trick}[2][\empty] {
+\newenvironmentx{observation}[2][\empty] {
 
-    \newcommand{\Title}{Trick}
+    \newcommand{\Title}{Observation}
 
     \ifthenelse{ \equal{#2}{\empty} }{
         % Only one argument supplied, don't need parantheses.
@@ -563,35 +563,14 @@
 
 \section{Convergence of Measurable Functions}
 
-\begin{definition}{5.1}{$\mu$-Almost Everywhere Convergence}
-
-    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge $\mu$-almost everywhere} to a \emph{$\mu$-a.e. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if there exists an $A \in \CalF$ s.t. $\mu(A) = 0$ and
-
-        \begin{align*}
-            \lim_{n \to \infty} f_n(\omega) = f(\omega) \in \mathbb{R}, \quad \forall \omega \in A^C.
-        \end{align*}
-
-    \emph{Notation:} $\lim_{n \to \infty} f_n = f$ ($\mu$-a.e.) or $f_n \to f$ ($\mu$-a.e.).
-
-\end{definition}
-
-\begin{definition}{5.1}{Almost Sure Convergence}
-
-    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge almost surely} to a \emph{$\mu$-a.s. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if there exists an $A \in \CalF$ s.t. $P(A) = 0$ and
-
-        \begin{align*}
-            \lim_{n \to \infty} f_n(\omega) = f(\omega) \in \mathbb{R}, \quad \forall \omega \in A^C.
-        \end{align*}
-
-    \emph{Notation:} $\lim_{n \to \infty} f_n = f$ (a.s.) or $f_n \to f$ (a.s.).
-
-\end{definition}
 
 %%%%%%%%%%%%%%%
 % Definitions %
 %%%%%%%%%%%%%%%
 
 \section{Definitions}
+
+\subsection{Basic Notions and Notation}
 
 \textit{In the following, $\Omega$ is a set, $\CalF$ a \SigmaAlgebra\ on $\Omega$. If used, then $\mu$ is a measure. Otherwise, the measure is the probability measure $P$.}
 
@@ -616,6 +595,8 @@
         \end{align*}
 \end{definition}
 
+\subsection{Random Variables}
+
 \begin{definition}{2.1.1}{}
 
     Let $A \subseteq \Omega$ and $\Indicator{A}$ be defined as follows:
@@ -631,6 +612,8 @@
     Then $\Indicator{A}$ is a R.V. and called the \emph{indicator (function) of (events) A}.
 
 \end{definition}
+
+\subsection{Expextation Integrals}
 
 \begin{definition}{}{Indicator Integral}
 
@@ -684,7 +667,7 @@
 
 \end{definition}
 
-\begin{definition}{(Unknown)}{}
+\begin{definition}{}{Restricted Integration}
 
     Let $A \in \CalF$ and $f: \Omega \to \overline{\mathbb{R}}$ is a measurable function, then we define:
 
@@ -708,6 +691,8 @@
 
 \end{definition}
 
+\subsection{Convergence of Measurable Functions}
+
 \begin{definition}{}{$\mu$-Almost Everywhere Finite}
 
     Let $f: \Omega \to \overline{\mathbb{R}}$ be $\CalF$-measurable, then $f$ is said to be \emph{$\mu$-almost everywhere} ($\mu$-a.e.) finite if $\mu(|f| = \infty) = 0$.
@@ -720,6 +705,51 @@
 
 \end{definition}
 
+\begin{definition}{5.1}{$\mu$-Almost Everywhere Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge $\mu$-almost everywhere} to a \emph{$\mu$-a.e. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if there exists an $A \in \CalF$ s.t. $\mu(A) = 0$ and
+
+        \begin{align*}
+            \lim_{n \to \infty} f_n(\omega) = f(\omega) \in \mathbb{R}, \quad \forall \omega \in A^C.
+        \end{align*}
+
+    \emph{Notation:} $\lim_{n \to \infty} f_n = f$ ($\mu$-a.e.) or $f_n \to f$ ($\mu$-a.e.).
+
+\end{definition}
+
+\begin{definition}{5.1}{Almost Sure Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge almost surely} to a \emph{a.s. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if there exists an $A \in \CalF$ s.t. $P(A) = 0$ and
+
+        \begin{align*}
+            \lim_{n \to \infty} f_n(\omega) = f(\omega) \in \mathbb{R}, \quad \forall \omega \in A^C.
+        \end{align*}
+
+    \emph{Notation:} $\lim_{n \to \infty} f_n = f$ (a.s.) or $f_n \to f$ (a.s.).
+
+\end{definition}
+
+\begin{definition}{5.2}{Convergence in Measure}
+
+    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge in measure $\mu$} to a \emph{$\mu$-a.e. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if
+
+        \begin{align*}
+            \lim_{n \to \infty} \mu(|f_n - f| \geq \varepsilon) = 0, \quad \forall \varepsilon > 0.
+        \end{align*}
+
+    \emph{Notation:} $\mu-\lim_{n \to \infty} f_n = f$.
+
+\end{definition}
+
+\begin{definition}{5.2}{Convergence in Probability}
+
+    Let $(f_n)_{n=1}^{\infty}$ be $\CalF$-measurable functions. The $f_n$ are said to \emph{converge in probability} to a \emph{a.s. finite} $f: \Omega \to \overline{\mathbb{R}}$ as $n \to \infty$ if
+
+        \begin{align*}
+            \lim_{n \to \infty} P(|f_n - f| \geq \varepsilon) = 0, \quad \forall \varepsilon > 0.
+        \end{align*}
+
+\end{definition}
 
 \begin{definition}{(Unknown)}{}
 
@@ -727,13 +757,13 @@
 
 \end{definition}
 
-%%%%%%%%%%%
-% Trickts %
-%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+% Observation %
+%%%%%%%%%%%%%%%
 
-\section{Tips and Tricks}
+\section{Useful Observations}
 
-\begin{trick}{}{$\mu$-Almost Everywhere Finite}
+\begin{observation}{}{$\mu$-Almost Everywhere Finite}
 
     If $f: \Omega \to \mathbb{R}$ is $\mu$-a. e. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
 
@@ -741,9 +771,9 @@
             \mu\left(\bigcap_{n=1}^{\infty} A_n\right) = \mu\left(\lim_{n \to \infty} A_n\right) = \mu(|f| = \infty) \\ = 0.
         \end{align*}
 
-\end{trick}
+\end{observation}
 
-\begin{trick}{}{Almost Surely Finite}
+\begin{observation}{}{Almost Surely Finite}
 
     If $f: \Omega \to \mathbb{R}$ is a. s. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
 
@@ -751,9 +781,21 @@
             P\left(\bigcap_{n=1}^{\infty} A_n\right) = P\left(\lim_{n \to \infty} A_n\right) = P(|f| = \infty) \\ = 0.
         \end{align*}
 
-\end{trick}
+\end{observation}
 
-\begin{trick}{}{Function As Integral}
+\begin{observation}{}{$\mu$-Almost Everywhere Convergence}
+
+    If $f_n \to f$ $\mu$-a.e., then $\mu(f_n \not\to f) = 0$.
+
+\end{observation}
+
+\begin{observation}{}{Almost Sure Convergence}
+
+    If $f_n \to f$ a.s., then $P(f_n \not\to f) = 0$ or equivalently $P(f_n \to f) = 1$.
+
+\end{observation}
+
+\begin{observation}{}{Function As Integral}
 
     Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative} measurable function, the obvserve that
 
@@ -761,7 +803,7 @@
             f(\omega) = \int\limits_0^{f(\omega)} \, dx = \int\limits_0^{\infty} \Indicator{x \leq f(\omega)} \, dx
         \end{align*}
 
-\end{trick}
+\end{observation}
 
 \end{multicols}
 
