@@ -415,7 +415,7 @@
 
 \end{proposition}
 
-\begin{proposition}{(Unknown)}{}
+\begin{proposition}{}{Bounding Intersections}
 
     Let $A, B \in \CalF$. Then $\mu(A \cap B) \leq \mu(A)$.
 
@@ -873,17 +873,76 @@
 
 \end{definition}
 
-\begin{definition}{(Unknown)}{}
+\begin{definition}{}{Finite Second Moment}
 
     Let $X$ be a random variable. Then $X$ has \emph{finite second moment} if $EX^2 < \infty$.
 
 \end{definition}
 
-%%%%%%%%%%%%%%%
-% Observation %
-%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+% Useful Observation %
+%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Useful Observations}
+
+\begin{observation}{}{Bounding Measures}
+
+    The following inequalities to bound measures are \emph{always} applicable, for \emph{any} sets $A, B, C \in \CalF$:
+
+    \begin{enumerate}
+        \item ``Dropping a set in an intersection gives an upper bound'' $\Leftrightarrow$ ``Relaxing constraints'':
+
+            \begin{align*}
+                \mu(A \cap B) \leq \mu(A).
+            \end{align*}
+        \item ``Dropping a set in a union gives an lower bound'':
+
+            \begin{align*}
+                \mu(A \cup B) \geq \mu(A).
+            \end{align*}
+        \item ``Adding a set in a union gives an upper bound'' $\Leftrightarrow$ ``Adding constraints'':
+
+            \begin{align*}
+                \mu(A \cup B) \leq \mu(A \cup B \cup C).
+            \end{align*}
+        \item ``Intersections are less than a set and a set is less than a union'':
+
+            \begin{align*}
+                \mu(A \cap B) \leq \mu(A) \leq \mu(A \cup B).
+            \end{align*}
+    \end{enumerate}
+
+\end{observation}
+
+\begin{observation}{}{Adding $\Omega$ by Intersection}
+
+    If you would like to introduce a property to an existing set $A$ to make it easier to work with, for instance easier to bound, you can add an intersection with $\Omega$:
+
+        \begin{align*}
+            \mu(A) = \mu(\Omega \cap A).
+        \end{align*}
+
+    Then $\Omega$ can be split into the set $B$ that represents the property and $B^C$ that does not have the property, where $\Omega = B \cup B^C$. Then:
+
+        \begin{align*}
+            \mu(A) = \mu(\Omega \cap A) = \mu((B \cup B^C) \cap A) = \\
+            \mu((B \cup B^C) \cap A) = \mu((B \cap A) \cup (B^C \cap A)).
+        \end{align*}
+
+    Using $\sigma$-additivity, we get:
+
+        \begin{align*}
+            \mu(A) = \mu(B \cap A) + \mu(B^C \cap A).
+        \end{align*}
+
+    Then by the observation on bounding measures, this can be made into an inequality:
+
+        \begin{align*}
+            \mu(A) &= \mu(B \cap A) + \mu(B^C \cap A) \\
+            &\leq \mu(B \cap A) + \mu(B^C).
+        \end{align*}
+
+\end{observation}
 
 \begin{observation}{}{Increasing Sequence of Sets}
 
