@@ -435,6 +435,44 @@
 
 \end{proposition}
 
+\begin{proposition}{}{Complement of Limit Inferior/Superior}
+
+    Let $(A_n)_{n=1}^{\infty}$ be a sequence of sets in $\CalF$, then:
+
+        \begin{enumerate}[(i)]
+            \item
+                \begin{align*}
+                    \left(\liminf_{n \to \infty} A_n\right)^C = \limsup_{n \to \infty} A_n^C
+                \end{align*}
+            \item
+                \begin{align*}
+                    \left(\limsup_{n \to \infty} A_n\right)^C = \liminf_{n \to \infty} A_n^C
+                \end{align*}
+        \end{enumerate}
+
+\end{proposition}
+
+\begin{exercise}{Ws 2, 1}{Limit Inferior/Superior Properties}
+
+       Let $(A_n)_{n=1}^{\infty}$ be a sequence of sets in $\CalF$, then:
+
+        \begin{enumerate}[(i)]
+            \item
+                \begin{align*}
+                    \liminf_{n \to \infty} A_n \coloneqq \bigcup_{n = 1}^{\infty}\bigcap_{k = n}^{\infty} A_k
+                \end{align*}
+
+                is the set of those $\omega$ that are \emph{in all but finitely many $A_n$}, i.e. that uphold the property $A_n$ captures for all except a finite amount of values of $n$.
+            \item
+                \begin{align*}
+                    \limsup_{n \to \infty} A_n \coloneqq \bigcap_{n = 1}^{\infty}\bigcup_{k = n}^{\infty} A_k
+                \end{align*}
+
+                is the set of those $\omega$ that are \emph{in infinitely many $A_n$}, i.e. that uphold the property $A_n$ captures for an infinite amount of values of $n$.
+        \end{enumerate} 
+
+\end{exercise}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Expectation Integral %
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -653,11 +691,49 @@
 
 \section{Convergence of Measurable Functions}
 
+\begin{exercise}{5.2}{Almost Finite, Converging Sequence is Bounded}
+
+    Assume that $\mu(\Omega) < \infty$. Let $(f_n)_{n=1}^{\infty}$ be \emph{$\mu$-a.e. finite}, converging in measure to $\mu$ to some $f: \Omega \to \mathbb{R}$. Then the sequence of $f_n$ is \emph{bounded in measure $\mu$, uniformly in $n$}, i.e.:
+
+        \begin{align*}
+            \lim_{K \to \infty} \sup_{n \geq 1} \mu(|f_n| \geq K) = 0.
+        \end{align*}
+
+    \Hint $f_n$ \emph{$\mu$-a.e. finite} \emph{and} $\mu(\Omega) < \infty$ $\Rightarrow$ $f_n$ bounded in measure (not necessarily uniformly), so
+
+        \begin{align*}
+            \lim_{K \to \infty} \sup_{n \geq 1} \mu(|f_n| \geq K) = \\ \lim_{K \to \infty} \limsup_{n \to \infty} \mu(|f_n| \geq K).
+        \end{align*}
+
+    Then use observation of splitting measures of inequalities.
+
+\end{exercise}
+
+\begin{exercise}{5.3}{Product of Bounded \& Zero Convergent is Zero Convergent}
+
+    Let $(f_n)_{n=1}^{\infty}$ and $(g_n)_{n=1}^{\infty}$ be sequences of $\mu$-a.e. finite measurable functions such that the $f_n$ are bounded in measure $\mu$, uniformly in $n$ and $g_n \to 0$ in measure $\mu$, as $n \to \infty$. Then $f_ng_n \to 0$ in measure $\mu$, as $n \to \infty$.
+
+\end{exercise}
+
 \begin{exercise}{Ws 3, 1}{}
 
     Let $\mu-\lim f_n = f$, then there exists a subsequence $(f_{n_k})_{k=1}^{\infty}$ such that $(n_k)_{k=1}^{\infty}$ is increasing and $f_{n_k} \to f$ ($\mu$-a.e.).
 
     \Hint Borel-Cantelli with $A_k = \{ |f_{n_k} - f| \geq 1/k \}$ s.t. $\mu(A_k) \leq 1/k^2$.
+
+\end{exercise}
+
+\begin{theorem}{5.4}{Measure Convergence Has Almost Everywhere Converging Subsequence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of functions converging in measure $\mu$ to some $\mu$-a.e. finite function $f$. Then there exists a (strictly) increasing sequence $(n_k)_{k=1}^{\infty}$ of positive integers such that $\lim_{k \to \infty} f_{n_k} = f$ $\mu$-almost everywhere.
+
+\end{theorem}
+
+\begin{exercise}{5.5}{}
+
+    Convergence in measure $\mu$ does not imple convergence $\mu$-almost everywhere.
+
+    \Hint $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \lambda)$ with $f_n = \Indicator{[k/2^m, (k+1)/2^m]}$ where $k = 0,1,\hdots,2^m - 1$ and $m=0,1,\hdots$ such that $n = 2^m + k$.
 
 \end{exercise}
 
@@ -679,6 +755,32 @@
     \Hint TODO
 
 \end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Independence of events and independence of random variables %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Independence of Events and Random Variables}
+
+\begin{theorem}{6.7}{Fubini-Tonelli Theorem}
+
+    Let $(\Omega_i, \CalF_i, \mu_i)$, for $i = 1,2$, be measure spaces and $(\Omega, \CalF, \mu)$ be the product measure space of the two, i.e. $\Omega = \Omega_1 \times \Omega_2$, $\CalF = \CalF_i \otimes \CalF_2$ and $\mu = \mu_1 \otimes \mu_2$. Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative} $\CalF$-measurable function. If $\mu_i$, for $i = 1,2$, are \emph{finite measures} on $\Omega_i$, for $i = 1,2$, respectively, then the following iterated integrals are well-defined and:
+
+        \begin{align*}
+            \int_{\Omega_1 \times \Omega_2} f \, d\mu_1 \otimes \mu_2 &= \int_{\Omega_1} \int_{\Omega_2} f \, d\mu_2 d\mu_1 = \\ &= \int_{\Omega_2} \int_{\Omega_1} f \, d\mu_1 d\mu_2.
+        \end{align*}
+
+    Furthermore, this statement holds for $\CalF$-measurable functions if:
+
+        \begin{align*}
+            \int_{\Omega_1 \times \Omega_2} |f| \, d\mu_1 \otimes \mu_2 < \infty.
+        \end{align*}
+
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conditional Expectation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 % Definitions %
@@ -873,9 +975,39 @@
 
 \end{definition}
 
+\begin{definition}{}{Bounded in Measure}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of measurable functions, then it is \emph{bounded in measure $\mu$} if
+
+        \begin{align*}
+            \lim_{K \to \infty} \mu(|f_n| \geq K) = 0,
+        \end{align*}
+
+    for any $n \geq 1$.
+
+\end{definition}
+
+\begin{definition}{}{Bounded Uniformly in Measure}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of measurable functions, then it is \emph{bounded in measure $\mu$, uniformly in $n$} if
+
+        \begin{align*}
+            \lim_{K \to \infty} \sup_{n \geq 1} \mu(|f_n| \geq K) = 0.
+        \end{align*}
+
+\end{definition}
+
 \begin{definition}{}{Finite Second Moment}
 
     Let $X$ be a random variable. Then $X$ has \emph{finite second moment} if $EX^2 < \infty$.
+
+\end{definition}
+
+\subsection{Conditional Expectation}
+
+\begin{definition}{}{Sub-$\sigma$-Algebra Measurable}
+
+    Let $Y$ be a random variable TODO FINISH
 
 \end{definition}
 
@@ -1057,6 +1189,16 @@
 
         \begin{align*}
             f(\omega) = \int\limits_0^{f(\omega)} \, dx = \int\limits_0^{\infty} \Indicator{x \leq f(\omega)} \, dx
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Bounding Complement Probabilities}
+
+    Note that $1 - x \leq e^{-x}$. Therefore, we can bound probabilities of a product of complement events, for instance:
+
+        \begin{align*}
+            \prod_{n = 1}^{\infty} P(A_n^C) = \prod_{n = 1}^{\infty} [1 - P(A_n)] \leq \\ \prod_{n = 1}^{\infty} e^{-P(A_n)} = e^{\sum_{n = 1}^{\infty} -P(A_n)}
         \end{align*}
 
 \end{observation}
