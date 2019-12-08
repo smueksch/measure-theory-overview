@@ -681,6 +681,18 @@
             P(X \geq \lambda) \leq \lambda^{-\alpha} E(X^{\alpha}) \quad \forall \lambda > 0, \alpha > 0.
         \end{align*}
 
+    \Hint $E(X^{\alpha}) \geq E(\Indicator{X \geq \lambda} X^{\alpha}) \geq E(\Indicator{X \geq \lambda} \lambda^{\alpha}) = \lambda^{\alpha} E(\Indicator{X \geq \lambda}) = \lambda^{\alpha} P(X \geq \lambda)$.
+
+\end{proposition}
+
+\begin{proposition}{3.18}{Markov-Chebyshev's Inequality (General)}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function, then
+
+        \begin{align*}
+            \mu(f \geq \lambda) \leq \lambda^{-\alpha} \int_{\Omega} f^{\alpha} \, d\mu \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
 \end{proposition}
 
 %%%%%%%%%%%%%
@@ -950,6 +962,18 @@
         \end{align*}
 
     Then $\Indicator{A}$ is a R.V. and called the \emph{indicator (function) of (events) A}.
+
+\end{definition}
+
+\begin{definition}{2.3}{Distribution Function}
+
+    Let $X$ be a random variable. Then the function
+
+        \begin{align*}
+            F_X(x) &= P(X \leq x) = \\ &= P(X \in (-\infty, x]) = Q_X((-\infty, x]),
+        \end{align*}
+
+    for $x \in \mathbb{R}$ is called the \emph{distribution function} of $X$.
 
 \end{definition}
 
@@ -1351,6 +1375,16 @@
         \end{align*}
 
     where pulling the expectation through the sum can be done due to the Monotone Convergence Theorem, as $\sum_{n=1}^{N} f(X_n)$ is an increasing sequence of \emph{non-negative} random variables.
+
+\end{observation}
+
+\begin{observation}{}{Markov-Chebyshev's Inequality \& Norm}
+
+    The following is the general Markov-Chebyshev Inequality rewritten using the norm instead of an integral. Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function in $L_{\alpha}(\Omega, \CalF, \mu)$, then
+
+        \begin{align*}
+            \mu(f \geq \lambda) \leq \lambda^{-\alpha} \Norm{f}_{\alpha}^{\alpha} \, d\mu \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
 
 \end{observation}
 
