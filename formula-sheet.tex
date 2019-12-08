@@ -473,6 +473,18 @@
 
 \end{exercise}
 
+\begin{proposition}{}{Continuous Implies Borel-Measurability}
+
+    Let $f: \mathbb{R} \to \overline{\mathbb{R}}$ be a \emph{continuous} function. Then $f$ is Borel-measurable.
+
+\end{proposition}
+
+\begin{proposition}{}{Countable Sets}
+
+    Every countable subset of $\mathbb{R}$ is Borel-measurable.
+
+\end{proposition}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Expectation Integral %
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -699,6 +711,26 @@
 
 \end{theorem}
 
+\begin{theorem}{}{H\"older's Inequality for Expectations}
+
+    Let $X,Y$ be random variables, then
+
+        \begin{align*}
+            E|XY| \leq (E|X|^p)^{\frac{1}{p}} (E|Y|^q)^{\frac{1}{q}}
+        \end{align*}
+
+    where
+
+        \begin{align*}
+            q \coloneqq 
+            \begin{cases}
+                \frac{p}{p - 1} & p > 1, \\
+                \infty & p = 1
+            \end{cases}.
+        \end{align*}
+
+\end{theorem}
+
 \begin{proposition}{}{Finite Second Momenta Implication}
 
     Let $X, Y$ be random variables with finite second momenta. Then $E|XY| < \infty$.
@@ -727,6 +759,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Convergence of Measurable Functions}
+
+\begin{exercise}{5.1}{}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of $\CalF$-measurable functions $f_n: \Omega \to \mathbb{R}$. Then the set $A$ of those $\omega \in \Omega$ such that $\lim_{n \to \infty} f_n(\omega)$ converges to some (finite) number belongs to $\CalF$.
+
+\end{exercise}
 
 \begin{exercise}{5.2}{Almost Finite, Converging Sequence is Bounded}
 
@@ -849,10 +887,10 @@
 
         \begin{enumerate}[(i)]
             \item If $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, then $\mu(A) = 0$.
-            \item If all $A_n$ are \emph{jointly independent} and $\sum_{n=1}^{\infty} \P(A_n) = \infty$, then $\P(A) = 1$.
+            \item If all $A_n$ are \emph{jointly independent} and $\sum_{n=1}^{\infty} P(A_n) = \infty$, then $P(A) = 1$.
         \end{enumerate}
 
-    \Hint TODO
+    \Hint (i) provided in general case. (ii) Prove $P((\limsup_{n \to \infty} A_n)^C) = 1$, define $B_n = \bigcap_{k=n}^{\infty} A_k^C$ and show that for a given $P(B_n) = P(\lim_{m \to \infty} \bigcap_{k=n}^{m} A_k) = 0$ using independence and observation that $1 - P(A) \leq e^{-P(A)}$. Finally, use \emph{sub}-$\sigma$-additivity for $P(\bigcup_{n=1}^{\infty} B_n)$. \emph{Do not} attempt to argue through increasing sequences.
     
 \end{lemma}
 
@@ -1298,6 +1336,21 @@
         \begin{align*}
             \prod_{n = 1}^{\infty} P(A_n^C) = \prod_{n = 1}^{\infty} [1 - P(A_n)] \leq \\ \prod_{n = 1}^{\infty} e^{-P(A_n)} = e^{\sum_{n = 1}^{\infty} -P(A_n)}
         \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Interchanging Expectation \& Infinite Sum}
+
+    Observe that if $f$ is \emph{non-negative}, then:
+
+        \begin{align*}
+            E\left(\sum_{n=1}^{\infty} f(X_n)\right) = 
+            E\left(\lim_{N \to \infty} \sum_{n=1}^{N} f(X_n)\right) = \\
+            = \lim_{N \to \infty} \sum_{n=1}^{N} E f(X_n) = 
+            \sum_{n=1}^{\infty} E f(X_n),
+        \end{align*}
+
+    where pulling the expectation through the sum can be done due to the Monotone Convergence Theorem, as $\sum_{n=1}^{N} f(X_n)$ is an increasing sequence of \emph{non-negative} random variables.
 
 \end{observation}
 
