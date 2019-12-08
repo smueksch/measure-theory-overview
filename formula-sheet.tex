@@ -591,16 +591,6 @@
 
 \end{proposition}
 
-\begin{proposition}{3.18}{Markov-Chebyshev's Inequality}
-
-    Let $X$ be a \emph{non-negative} R.V., then
-
-        \begin{align*}
-            P(X \geq \lambda) \leq \lambda^{-\alpha} E(X^{\alpha}) \quad \forall \lambda > 0, \alpha > 0.
-        \end{align*}
-
-\end{proposition}
-
 \begin{remark}{3.3}{}
 
     Let $(\Omega, \mathcal{F}, \mu)$ be measure space, $f: \Omega \to \overline{\mathbb{R}}$ \emph{non-negative} $\mathcal{F}$-measurable, then
@@ -670,6 +660,53 @@
         \end{align*}
 
 \end{proposition}
+
+\begin{proposition}{3.18}{Markov-Chebyshev's Inequality}
+
+    Let $X$ be a \emph{non-negative} R.V., then
+
+        \begin{align*}
+            P(X \geq \lambda) \leq \lambda^{-\alpha} E(X^{\alpha}) \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+\end{proposition}
+
+%%%%%%%%%%%%%
+% Lp Spaces %
+%%%%%%%%%%%%%
+
+\section{\texorpdfstring{$L_p$}\ \ Spaces}
+
+\begin{theorem}{}{H\"older's Inequality}
+
+    Let $f,g: \Omega \to \overline{\mathbb{R}}$ be measurable functions, then
+
+        \begin{align*}
+            \int_{\Omega} |fg| \, d\mu \leq \Norm{f}_p \Norm{g}_q \quad \textrm{for } p \geq 1,
+        \end{align*}
+
+    where
+
+        \begin{align*}
+            q \coloneqq 
+            \begin{cases}
+                \frac{p}{p - 1} & p > 1, \\
+                \infty & p = 1
+            \end{cases}.
+        \end{align*}
+
+    \Hint TODO
+
+\end{theorem}
+
+\begin{proposition}{}{Finite Second Momenta Implication}
+
+    Let $X, Y$ be random variables with finite second momenta. Then $E|XY| < \infty$.
+
+    \Hint Use H\"older's Inequality with $p = 2$ on $E|XY| = \int_{\Omega} |XY| \, dP$.
+
+\end{proposition}
+
 
 \begin{lemma}{4.4}{Borel-Cantelli Lemma}
 
