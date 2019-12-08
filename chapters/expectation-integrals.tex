@@ -1,0 +1,209 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Expectation Integrals %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Expectation Integrals}
+
+\begin{proposition}{(Unknown)}{}
+
+    Let $A,B \subseteq \Omega$. Then the following equalities hold:
+
+        \begin{itemize}
+            \setlength{\parskip}{0em}
+            \item $\Indicator{A^C} = 1 - \Indicator{A}$,
+            \item $\Indicator{A \cap B} = \Indicator{A}\Indicator{B}$.
+            \item $\Indicator{A \cup B} = \Indicator{A} + \Indicator{B} - \Indicator{A \cap B}$.
+        \end{itemize}
+
+\end{proposition}
+
+\begin{lemma}{3.3}{}
+
+    Let $X$ be a \emph{non-negative} random variable. Then there exists a sequence of \emph{non-negative, simple} random variables $X_n$ converging to $X$ for every $\omega \in \Omega$.
+
+    \Hint $h_n(x)=\min\{\floor{2^nx}/2^n, n\}$ is non-negative, simple and increasing, approaching $x$. Consider $X_n \coloneqq h(X) \to X$.
+
+\end{lemma}
+
+\begin{lemma}{}{Simple Function Integral Properties}
+
+    Let $f,g: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, simple functions and $a,b \geq 0$. Then the following holds:
+
+    \begin{itemize}
+        \item $\int_{\Omega} f \, d\mu \geq 0$,
+        \item $\int_{\Omega} (af + bg) \, d\mu = a\int_{\Omega} f + b\int_{\Omega}g \, d\mu$.
+    \end{itemize}
+
+\end{lemma}
+
+\begin{corollary}{}{Positive Integral over Set}
+
+    Let $A \subseteq \Omega$ and $f: \Omega \to \overline{\mathbb{R}}$ a \emph{non-negative} measurable function. Then $\int_A f \, d\mu \geq 0$.
+
+\end{corollary}
+
+\begin{lemma}{3.3}{General}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function. The there exists a sequence $f_n$ of \emph{non-negative}, simple functions such that:
+
+    \begin{align*}
+        \lim_{n \to \infty} f_n = f
+    \end{align*}
+
+    \Hint Use $h_n$ from Lemma 3.3's hint.
+
+\end{lemma}
+
+\begin{exercise}{3.5}{}
+
+    Let $A \in \CalF$ s.t. $\mu(A) = 0$. Then for \emph{any} measurable function $f: \Omega \to \overline{\mathbb{R}}$:
+    
+        \begin{align*}
+            \int_A f \,d\mu = 0.
+        \end{align*}
+
+\end{exercise}
+
+\begin{exercise}{3.6}{}
+
+    Let $f: \Omega \to \mathbb{R}$ be a measurable function, then:
+
+        \begin{enumerate}[(i)]
+            \setlength{\parskip}{0em}
+            \item For any $c \in \mathbb{R}$ and $A \in \CalF$:
+
+                \begin{align*}
+                    \int_A cf \, d\mu = c \int_A f \, d\mu,
+                \end{align*}
+            
+            provided the integral exists.
+            \item For any $A, B \in \CalF$, such that $A \cap B = \emptyset$:
+
+                \begin{align*}
+                    \int_{A \cup B} f \,d\mu = \int_{A} f \,d\mu + \int_{B} f \,d\mu,
+                \end{align*}
+
+            provided the left-hand or right-hand side is well-defined.
+        \end{enumerate}
+
+\end{exercise}
+
+\begin{theorem}{3.8}{Monotone Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be increasing sequence of non-negative, measurable functions $f_n: \Omega \to \overline{\mathbb{R}}$, converging to some $f$. Then:
+
+        \begin{align*}
+            \int_{\Omega} \lim_{n \to \infty} f_n \,d\mu = \lim_{n \to \infty} \int_{\Omega} f_n \,d\mu
+        \end{align*}
+
+\end{theorem}
+
+\begin{exercise}{3.15}{}
+
+    Let $\nu$ be a measure that is absolutely continuous with respect to measure $\mu$ and density $g$, then $\mu(g < 0) = 0$. Moreover, $\nu$ is a probability measure $\Leftrightarrow$ $g \geq 0$ $\mu$-a.e. and $\int_{\Omega} g \, d\mu = 1$.
+
+\end{exercise}
+
+\begin{proposition}{3.16}{}
+
+    Let $\nu$ and $\mu$ be measures on \SigmaAlgebra\ $\CalF$ such that $\nu$ is absolutely continuous with respect to $\mu$ and density $g$. Then for every $\CalF$-measurable function $f$ the following holds:
+
+        \begin{align*}
+            \int_{\Omega} f \, d\nu = \int_{\Omega} fg \, d\mu,
+        \end{align*}
+
+    whenever one of the integrals exists.
+
+\end{proposition}
+
+\begin{remark}{3.3}{}
+
+    Let $(\Omega, \mathcal{F}, \mu)$ be measure space, $f: \Omega \to \overline{\mathbb{R}}$ \emph{non-negative} $\mathcal{F}$-measurable, then
+
+        \begin{align*}
+            \mu(f \geq \lambda) \leq \lambda^{-\alpha} \int_{\Omega} f^{\alpha} \,d\mu \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+\end{remark}
+
+\begin{lemma}{3.10}{Fatou's Lemma}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of \emph{non-negative}, measurable functions $f: \Omega \to \overline{\mathbb{R}}$, then
+
+        \begin{align*}
+            \int_{\Omega} \liminf_{n \to \infty} f_n \, d\mu \leq \liminf_{n \to \infty} \int_{\Omega} f_n \, d\mu.
+        \end{align*}
+
+\end{lemma}
+
+\begin{corollary}{3.11}{Fatou's Lemma Extension}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of measurable functions $f: \Omega \to \overline{\mathbb{R}}$. Then
+
+        \begin{enumerate}[(i)]
+            \item if there exists a $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$ such that $g \leq f_n$ for all $n$, then:
+
+            \begin{align*}
+                \int_{\Omega} \liminf_{n \to \infty} f_n \, d\mu \leq \liminf_{n \to \infty} \int_{\Omega} f_n \, d\mu.
+            \end{align*}
+            \item if there exists a $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$ such that $g \geq f_n$, then:
+
+            \begin{align*}
+                \int_{\Omega} \limsup_{n \to \infty} f_n \, d\mu \geq \limsup_{n \to \infty} \int_{\Omega} f_n \, d\mu.
+            \end{align*}
+        \end{enumerate}
+
+    \Hint TODO
+
+\end{corollary}
+
+\begin{theorem}{3.12}{Lebegue's Theorem on Dominated Convergence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of Borel functions $f_n: \Omega \to \overline{\mathbb{R}}$ converging to some $f: \Omega \to \overline{\mathbb{R}}$. Assume there exists a (non-negative) Borel functions $g$ such that $|f_n| \leq g$ for any $n \geq 1$ and $\int_{\Omega} g \, d\mu < \infty$. Then the following two statements hold:
+
+        \begin{enumerate}[(i)]
+            \item
+                \begin{align*}
+                    \int_{\Omega} |f| \, d\mu < \infty,
+                \end{align*}
+            \item
+                \begin{align*}
+                    \int_{\Omega} f \, d\mu = \lim_{n \to \infty} \int_{\Omega} f \, d\mu.
+                \end{align*}
+        \end{enumerate}
+
+    \Hint TODO
+
+\end{theorem}
+
+\begin{proposition}{}{Restricted Expectation}
+
+    Let $X$ be a random variable and $A \in \CalF$, then:
+
+        \begin{align*}
+            E(X \Indicator{A}) = \int_A X \,dP.
+        \end{align*}
+
+\end{proposition}
+
+\begin{proposition}{3.18}{Markov-Chebyshev's Inequality}
+
+    Let $X$ be a \emph{non-negative} R.V., then
+
+        \begin{align*}
+            P(X \geq \lambda) \leq \lambda^{-\alpha} E(X^{\alpha}) \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+    \Hint $E(X^{\alpha}) \geq E(\Indicator{X \geq \lambda} X^{\alpha}) \geq E(\Indicator{X \geq \lambda} \lambda^{\alpha}) = \lambda^{\alpha} E(\Indicator{X \geq \lambda}) = \lambda^{\alpha} P(X \geq \lambda)$.
+
+\end{proposition}
+
+\begin{proposition}{3.18}{Markov-Chebyshev's Inequality (General)}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function, then
+
+        \begin{align*}
+            \mu(f \geq \lambda) \leq \lambda^{-\alpha} \int_{\Omega} f^{\alpha} \, d\mu \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+\end{proposition}

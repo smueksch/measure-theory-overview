@@ -1,0 +1,216 @@
+%%%%%%%%%%%%%%%%%%%%%%
+% Useful Observation %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Useful Observations}
+
+\begin{observation}{}{Bounding Measures}
+
+    The following inequalities to bound measures are \emph{always} applicable, for \emph{any} sets $A, B, C \in \CalF$:
+
+    \begin{enumerate}
+        \item ``Dropping a set in an intersection gives an upper bound'' $\Leftrightarrow$ ``Relaxing constraints'':
+
+            \begin{align*}
+                \mu(A \cap B) \leq \mu(A).
+            \end{align*}
+        \item ``Dropping a set in a union gives an lower bound'':
+
+            \begin{align*}
+                \mu(A \cup B) \geq \mu(A).
+            \end{align*}
+        \item ``Adding a set in a union gives an upper bound'' $\Leftrightarrow$ ``Adding constraints'':
+
+            \begin{align*}
+                \mu(A \cup B) \leq \mu(A \cup B \cup C).
+            \end{align*}
+        \item ``Intersections are less than a set and a set is less than a union'':
+
+            \begin{align*}
+                \mu(A \cap B) \leq \mu(A) \leq \mu(A \cup B).
+            \end{align*}
+    \end{enumerate}
+
+\end{observation}
+
+\begin{observation}{}{Adding $\Omega$ by Intersection}
+
+    If you would like to introduce a property to an existing set $A$ to make it easier to work with, for instance easier to bound, you can add an intersection with $\Omega$:
+
+        \begin{align*}
+            \mu(A) = \mu(\Omega \cap A).
+        \end{align*}
+
+    Then $\Omega$ can be split into the set $B$ that represents the property and $B^C$ that does not have the property, where $\Omega = B \cup B^C$. Then:
+
+        \begin{align*}
+            \mu(A) = \mu(\Omega \cap A) = \mu((B \cup B^C) \cap A) = \\
+            \mu((B \cup B^C) \cap A) = \mu((B \cap A) \cup (B^C \cap A)).
+        \end{align*}
+
+    Using $\sigma$-additivity, we get:
+
+        \begin{align*}
+            \mu(A) = \mu(B \cap A) + \mu(B^C \cap A).
+        \end{align*}
+
+    Then by the observation on bounding measures, this can be made into an inequality:
+
+        \begin{align*}
+            \mu(A) &= \mu(B \cap A) + \mu(B^C \cap A) \\
+            &\leq \mu(B \cap A) + \mu(B^C).
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Increasing Sequence of Sets}
+
+    For an \emph{increasing} sequence of sets $(A_n)_{n=1}^{\infty}$ we can define:
+
+        \begin{align*}
+            \lim_{n \to \infty} A_n \coloneqq \bigcup_{n=1}^{\infty} A_n
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Decreasing Sequence of Sets}
+
+    For an \emph{decreasing} sequence of sets $(A_n)_{n=1}^{\infty}$ we can define:
+
+        \begin{align*}
+            \lim_{n \to \infty} A_n \coloneqq \bigcap_{n=1}^{\infty} A_n
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Finite, I}
+
+    If $f: \Omega \to \mathbb{R}$ is $\mu$-a. e. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
+
+        \begin{align*}
+            \mu\left(\bigcap_{n=1}^{\infty} A_n\right) = \mu\left(\lim_{n \to \infty} A_n\right) = \mu(|f| = \infty) \\ = 0.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Finite, II}
+
+    If $f: \Omega \to \mathbb{R}$ is $\mu$-a. e. finite, then observe
+
+        \begin{align*}
+            \mu(|f| = \infty) = \lim_{R \to \infty} \mu(|f| \geq R) = 0.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Almost Surely Finite, II}
+
+    If $f: \Omega \to \mathbb{R}$ is a.s. finite, then observe
+
+        \begin{align*}
+            P(|f| = \infty) = \lim_{R \to \infty} P(|f| \geq R) = 0. \\
+            \iff P(|f| < \infty) = \lim_{R \to \infty} P(|f| < R) = 1.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Almost Surely Finite}
+
+    If $f: \Omega \to \mathbb{R}$ is a. s. finite, then note that if $A_n \coloneqq \{ |f| \geq n \}$, then $(A_n)_{n=1}^{\infty}$ is a decreasing sequence and so:
+
+        \begin{align*}
+            P\left(\bigcap_{n=1}^{\infty} A_n\right) = P\left(\lim_{n \to \infty} A_n\right) = P(|f| = \infty) \\ = 0.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Convergence I}
+
+    If $f_n \to f$ $\mu$-a.e., then $\mu(f_n \not\to f) = 0$.
+
+\end{observation}
+
+\begin{observation}{}{$\mu$-Almost Everywhere Convergence II}
+
+    If $A \in \CalF$ is a set such that $\mu(A) = 0$ and
+
+        \begin{align*}
+            \lim_{n \to \infty} |f_n(\omega) - f(\omega)| = 0 \quad \forall \omega \in A^C,
+        \end{align*}
+
+    then $f_n \to f$ $\mu$-almost everywhere.
+
+\end{observation}
+
+\begin{observation}{}{Almost Sure Convergence}
+
+    If $f_n \to f$ a.s., then $P(f_n \not\to f) = 0$ or equivalently $P(f_n \to f) = 1$.
+
+\end{observation}
+
+\begin{observation}{}{Splitting Measures of Inequalities}
+
+    Let $f,g$ be measurable functions and $a \in \mathbb{R}$, then observe that:
+
+        \begin{align*}
+            \mu(|f| \geq a) \leq \mu\left( |f - g| \geq \frac{a}{2} \right) + \mu\left( |g| \geq \frac{a}{2} \right)
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Using Borel-Cantelli}
+
+    If you can define sets $(A_k)_{k=1}^{\infty}$ such that $\mu(A_k) \leq 1/k^2$, then you can use Borel-Cantelli as:
+
+        \begin{align*}
+            \sum_{k=1}^{\infty} \mu(A_k) \leq \sum_{k=1}^{\infty} \frac{1}{k^2} < \infty.
+        \end{align*}
+
+    In fact, the choice of $1/k^2$ is more or less arbitrary. This technique would work with any $r_k$ s.t. $\sum_{k=1}^{\infty} r_k < \infty$ and $\mu(A_k) \leq r_k$. Caution: $r_k = 1/k$ does \emph{not} work.
+
+\end{observation}
+
+\begin{observation}{}{Function As Integral}
+
+    Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative} measurable function, the obvserve that
+
+        \begin{align*}
+            f(\omega) = \int\limits_0^{f(\omega)} \, dx = \int\limits_0^{\infty} \Indicator{x \leq f(\omega)} \, dx
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Bounding Complement Probabilities}
+
+    Note that $1 - x \leq e^{-x}$. Therefore, we can bound probabilities of a product of complement events, for instance:
+
+        \begin{align*}
+            \prod_{n = 1}^{\infty} P(A_n^C) = \prod_{n = 1}^{\infty} [1 - P(A_n)] \leq \\ \prod_{n = 1}^{\infty} e^{-P(A_n)} = e^{\sum_{n = 1}^{\infty} -P(A_n)}
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Interchanging Expectation \& Infinite Sum}
+
+    Observe that if $f$ is \emph{non-negative}, then:
+
+        \begin{align*}
+            E\left(\sum_{n=1}^{\infty} f(X_n)\right) = 
+            E\left(\lim_{N \to \infty} \sum_{n=1}^{N} f(X_n)\right) = \\
+            = \lim_{N \to \infty} \sum_{n=1}^{N} E f(X_n) = 
+            \sum_{n=1}^{\infty} E f(X_n),
+        \end{align*}
+
+    where pulling the expectation through the sum can be done due to the Monotone Convergence Theorem, as $\sum_{n=1}^{N} f(X_n)$ is an increasing sequence of \emph{non-negative} random variables.
+
+\end{observation}
+
+\begin{observation}{}{Markov-Chebyshev's Inequality \& Norm}
+
+    The following is the general Markov-Chebyshev Inequality rewritten using the norm instead of an integral. Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative}, measurable function in $L_{\alpha}(\Omega, \CalF, \mu)$, then
+
+        \begin{align*}
+            \mu(f \geq \lambda) \leq \lambda^{-\alpha} \Norm{f}_{\alpha}^{\alpha} \, d\mu \quad \forall \lambda > 0, \alpha > 0.
+        \end{align*}
+
+\end{observation}

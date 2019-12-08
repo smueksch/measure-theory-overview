@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%
+% Lp Spaces %
+%%%%%%%%%%%%%
+
+\section{\texorpdfstring{$L_p$}\ \ Spaces}
+
+\begin{theorem}{}{H\"older's Inequality}
+
+    Let $f,g: \Omega \to \overline{\mathbb{R}}$ be measurable functions, then
+
+        \begin{align*}
+            \int_{\Omega} |fg| \, d\mu \leq \Norm{f}_p \Norm{g}_q \quad \textrm{for } p \geq 1,
+        \end{align*}
+
+    where
+
+        \begin{align*}
+            q \coloneqq 
+            \begin{cases}
+                \frac{p}{p - 1} & p > 1, \\
+                \infty & p = 1
+            \end{cases}.
+        \end{align*}
+
+    \Hint TODO
+
+\end{theorem}
+
+\begin{theorem}{}{H\"older's Inequality for Expectations}
+
+    Let $X,Y$ be random variables, then
+
+        \begin{align*}
+            E|XY| \leq (E|X|^p)^{\frac{1}{p}} (E|Y|^q)^{\frac{1}{q}}
+        \end{align*}
+
+    where
+
+        \begin{align*}
+            q \coloneqq 
+            \begin{cases}
+                \frac{p}{p - 1} & p > 1, \\
+                \infty & p = 1
+            \end{cases}.
+        \end{align*}
+
+\end{theorem}
+
+\begin{proposition}{}{Finite Second Momenta Implication}
+
+    Let $X, Y$ be random variables with finite second momenta. Then $E|XY| < \infty$.
+
+    \Hint Use H\"older's Inequality with $p = 2$ on $E|XY| = \int_{\Omega} |XY| \, dP$.
+
+\end{proposition}
+
+
+\begin{lemma}{4.4}{Borel-Cantelli Lemma}
+
+    Let $(A)_{n=1}^{\infty}$ be a sequence of sets $A_n \in \CalF$ such that $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, i.e. the series of measures of $A_n$ converges. Then for:
+
+        \begin{align*}
+            A \coloneqq \limsup_{n \to \infty} A_n \coloneqq \bigcap_{n=1}^{\infty} \bigcup_{k=n}^{\infty} A_k,
+        \end{align*}
+
+    we have $\mu(A) = 0$.
+
+    \Hint Define $B_n \coloneqq \bigcup_{k=n}^{\infty} A_k$, then $(B_n)_{n=1}^\infty$ is decreasing and so $\bigcap_{n=1}^{\infty} B_n = \lim_{n \to \infty} B_n$ and realize that $\sum_{n=1}^{\infty} \mu(A_n) < \infty$ $\Rightarrow$ tail sums $\sum_{k=n}^{\infty} \mu(A_k) \to 0$ as $n \to \infty$.
+
+\end{lemma}

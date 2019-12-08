@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Convergence of Measurable Functions %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Convergence of Measurable Functions}
+
+\begin{exercise}{5.1}{}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of $\CalF$-measurable functions $f_n: \Omega \to \mathbb{R}$. Then the set $A$ of those $\omega \in \Omega$ such that $\lim_{n \to \infty} f_n(\omega)$ converges to some (finite) number belongs to $\CalF$.
+
+\end{exercise}
+
+\begin{exercise}{5.2}{Almost Finite, Converging Sequence is Bounded}
+
+    Assume that $\mu(\Omega) < \infty$. Let $(f_n)_{n=1}^{\infty}$ be \emph{$\mu$-a.e. finite}, converging in measure to $\mu$ to some $f: \Omega \to \mathbb{R}$. Then the sequence of $f_n$ is \emph{bounded in measure $\mu$, uniformly in $n$}, i.e.:
+
+        \begin{align*}
+            \lim_{K \to \infty} \sup_{n \geq 1} \mu(|f_n| \geq K) = 0.
+        \end{align*}
+
+    \Hint $f_n$ \emph{$\mu$-a.e. finite} \emph{and} $\mu(\Omega) < \infty$ $\Rightarrow$ $f_n$ bounded in measure (not necessarily uniformly), so
+
+        \begin{align*}
+            \lim_{K \to \infty} \sup_{n \geq 1} \mu(|f_n| \geq K) = \\ \lim_{K \to \infty} \limsup_{n \to \infty} \mu(|f_n| \geq K).
+        \end{align*}
+
+    Then use observation of splitting measures of inequalities.
+
+\end{exercise}
+
+\begin{exercise}{5.3}{Product of Bounded \& Zero Convergent is Zero Convergent}
+
+    Let $(f_n)_{n=1}^{\infty}$ and $(g_n)_{n=1}^{\infty}$ be sequences of $\mu$-a.e. finite measurable functions such that the $f_n$ are bounded in measure $\mu$, uniformly in $n$ and $g_n \to 0$ in measure $\mu$, as $n \to \infty$. Then $f_ng_n \to 0$ in measure $\mu$, as $n \to \infty$.
+
+\end{exercise}
+
+\begin{exercise}{Ws 3, 1}{}
+
+    Let $\mu-\lim f_n = f$, then there exists a subsequence $(f_{n_k})_{k=1}^{\infty}$ such that $(n_k)_{k=1}^{\infty}$ is increasing and $f_{n_k} \to f$ ($\mu$-a.e.).
+
+    \Hint Borel-Cantelli with $A_k = \{ |f_{n_k} - f| \geq 1/k \}$ s.t. $\mu(A_k) \leq 1/k^2$.
+
+\end{exercise}
+
+\begin{theorem}{5.4}{Measure Convergence Has Almost Everywhere Converging Subsequence}
+
+    Let $(f_n)_{n=1}^{\infty}$ be a sequence of functions converging in measure $\mu$ to some $\mu$-a.e. finite function $f$. Then there exists a (strictly) increasing sequence $(n_k)_{k=1}^{\infty}$ of positive integers such that $\lim_{k \to \infty} f_{n_k} = f$ $\mu$-almost everywhere.
+
+\end{theorem}
+
+\begin{exercise}{5.5}{}
+
+    Convergence in measure $\mu$ does not imple convergence $\mu$-almost everywhere.
+
+    \Hint $(\mathbb{R}, \mathcal{B}(\mathbb{R}), \lambda)$ with $f_n = \Indicator{[k/2^m, (k+1)/2^m]}$ where $k = 0,1,\hdots,2^m - 1$ and $m=0,1,\hdots$ such that $n = 2^m + k$.
+
+\end{exercise}
+
+\begin{exercise}{Ws 3, 2}{Convergence Implication}
+
+    Let $\mu(\Omega) < \infty$. Then $\lim_{n \to \infty} f_n = f$ ($\mu$-a.e.) $\Rightarrow$ $\mu-\lim_{n \to \infty} f_n = f$.
+
+\end{exercise}
+
+\begin{exercise}{Ws 3, 3}{Relaxed Domnitated Convergence}
+
+    Lebegue's Theorem on Dominated convergence holds under the following, relaxed conditions:
+
+        \begin{enumerate}[(i)]
+            \item $\lim_{n \to \infty} f_n = f$ \emph{$\mu$-a.e.},  $|f_n| \leq g|$ $\mu$-a.e. and $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$; and
+            \item $\mu-\lim_{n \to \infty} f_n = f$,  $|f_n| \leq g|$ $\mu$-a.e. and $g \in L_1(\Omega, \CalF, \mu)$, i.e. $\int_{\Omega} |g| \, d\mu < \infty$.
+        \end{enumerate}
+
+    \Hint TODO
+
+\end{exercise}

@@ -1,0 +1,331 @@
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[portrait]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{mathtools}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{etoolbox} % Required for \appto.
+\usepackage{centernot}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem Environment Setup %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}
+
+\usepackage{xargs}
+
+\usepackage{ifthen}
+
+% New environments for definitions and theorems. These will let us put in the
+% exact reference to the definition/theorems in the notes, e.g.
+%
+% \begin{definition}{5.1.1}
+%     ...
+% \end{definition}
+%
+% to create a definition with title "Definition 5.1.1", referencing the
+% definition with the same number in the notes.
+%\newenvironment{definition}[1] {
+%    \par\addvspace{\topsep}
+%    \noindent\textbf{Definition #1}.
+%    \ignorespaces
+%}
+
+\newenvironmentx{observation}[2][\empty] {
+
+    \newcommand{\Title}{Observation}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+
+\newenvironmentx{definition}[2][\empty] {
+
+    \newcommand{\Title}{Definition}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{theorem}[2][\empty] {
+
+    \newcommand{\Title}{Theorem}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{lemma}[2][\empty] {
+
+    \newcommand{\Title}{Lemma}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+
+\newenvironmentx{proposition}[2][\empty] {
+
+    \newcommand{\Title}{Proposition}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{corollary}[2][\empty] {
+
+    \newcommand{\Title}{Corollary}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{remark}[2][\empty] {
+
+    \newcommand{\Title}{Remark}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{example}[2][\empty] {
+
+    \newcommand{\Title}{Example}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{exercise}[2][\empty] {
+
+    \newcommand{\Title}{Exercise}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+\newenvironmentx{question}[2][\empty] {
+
+    \newcommand{\Title}{Question}
+
+    \ifthenelse{ \equal{#2}{\empty} }{
+        % Only one argument supplied, don't need parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1}.
+        \ignorespaces
+    }{
+        % Two arguments supplied, show in parantheses.
+        \par\addvspace{\topsep}
+        \noindent\textbf{\Title\  #1} (#2).
+        \ignorespaces
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commands for Mathematical Typesetting %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Redefine \leq and \geq to something nicer looking:
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+% Inner Product:
+\DeclareRobustCommand{\InnerProduct}[2]{
+    \ifmmode
+        \left( #1,#2 \right)
+    \else
+        \GenericError{\space\space\space\space}
+        {Attempting to use \InnerProduct outside of math mode}
+    \fi
+}
+
+% Vector Norm: 
+\DeclareRobustCommand{\Norm}[1]{
+    \ifmmode
+        \left\lVert #1 \right\rVert
+    \else
+        \GenericError{\space\space\space\space}
+        {Attempting to use \Norm outside of math mode}
+    \fi
+}
+
+% Principle Argument of Complex Number:
+\DeclareMathOperator{\Arg}{Arg}
+
+% Principle Branch of Logarithm of Complex Number:
+\DeclareMathOperator{\Log}{Log}
+
+% Image of Function:
+\DeclareMathOperator{\im}{im}
+
+% Real part of complex number:
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+
+% Imaginary part of complex number:
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+% Interior of a Curve:
+\DeclareMathOperator{\Int}{Int}
+
+% Exterior of a Curve:
+\DeclareMathOperator{\Ext}{Ext}
+
+% Residue of Function at Singularity:
+\DeclareMathOperator{\Res}{Res}
+
+% Proof Hint:
+\newcommand{\Hint}{\textit{Hint: }}
+
+% Sigma-Algebra:
+\newcommand{\SigmaAlgebra}{$\sigma$-algebra}
+
+% Indicator Function:
+\newcommand{\Indicator}[1]{\mathbf{1}_{#1}}
+
+% Calligraphic F:
+\newcommand{\CalF}{\mathcal{F}}
+
+% Floor function:
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometdry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define emphasis to be bold face and italic.
+\DeclareTextFontCommand{\emph}{\bfseries\em}
+
+% Removes most of whitespace above and below equations.
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{-5pt}% Default: 12pt plus 3pt minus 9pt
+  \setlength{\belowdisplayskip}{3pt}% Default: 0pt plus 3pt
+  \setlength{\abovedisplayshortskip}{-5pt}% Default: 12pt plus 3pt minus 9pt
+  \setlength{\belowdisplayshortskip}{3pt}% Default: 7pt plus 3pt minus 4pt
+}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}

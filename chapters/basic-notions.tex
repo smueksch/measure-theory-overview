@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%
+% Basic Notions %
+%%%%%%%%%%%%%%%%%
+
+\section{Basic Notions and Notation}
+
+\begin{example}{1.1}{}
+
+    Simplest \SigmaAlgebra:
+
+        \begin{itemize}
+            \setlength{\parskip}{0em}
+            \item $\{\emptyset, \Omega\}$, \emph{contained in every} \SigmaAlgebra \ on $\Omega$,
+            \item Family of all subsets of $\Omega$, \emph{containing every} \SigmaAlgebra on $\Omega$.
+        \end{itemize}
+
+\end{example}
+
+\begin{exercise}{1.1}{}
+
+    Let $\CalF$ be a \SigmaAlgebra. Then $A_n \in \CalF$ for every integer $n \geq 1$ $\Rightarrow \bigcap_{n=1}^{\infty} A_n \in \CalF$.
+
+\end{exercise}
+
+\begin{proposition}{1.2}{}
+
+    Let $P$ be a probability measure on \SigmaAlgebra\ $\CalF$. Then the following statements hold:
+
+        \begin{enumerate}[(i)]
+            \item $A, B \in \CalF$ s.t. $A \subseteq B$ $\Rightarrow$ $P(A) \leq P(B)$;
+            \item For \emph{increasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} P(A_n) = P\left(\bigcup_{n=1}^{\infty} A_n \right);
+                \end{align*}
+            \item For \emph{decreasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} P(A_n) = P\left(\bigcap_{n=1}^{\infty} A_n \right).
+                \end{align*}
+        \end{enumerate}
+
+\end{proposition}
+
+\begin{proposition}{1.2}{General}
+
+    Let $\mu$ be a measure on \SigmaAlgebra\ $\CalF$. Then the following statements hold:
+
+        \begin{enumerate}[(i)]
+            \item $A, B \in \CalF$ s.t. $A \subseteq B$ $\Rightarrow$ $\mu(A) \leq \mu(B)$;
+            \item For \emph{increasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} \mu(A_n) = \mu\left(\bigcup_{n=1}^{\infty} A_n \right);
+                \end{align*}
+            \item For \emph{decreasing} sequence $(A_n)_{n=1}^{\infty}$ we have
+
+                \begin{align*}
+                    \lim_{n \to \infty} \mu(A_n) = \mu\left(\bigcap_{n=1}^{\infty} A_n \right).
+                \end{align*}
+        \end{enumerate}
+
+\end{proposition}
+
+\begin{proposition}{}{Bounding Intersections}
+
+    Let $A, B \in \CalF$. Then $\mu(A \cap B) \leq \mu(A)$.
+
+    \Hint $\sigma$-additivity and $A = (A \cap B) \cup (A \setminus B)$.
+
+\end{proposition}
+
+\begin{proposition}{}{Measure of Set Difference, I}
+
+    Let $A, B \in \CalF$, then $\mu(A \setminus B) = \mu(A) - \mu(A \cap B)$.
+
+\end{proposition}
+
+\begin{proposition}{}{Measure of Set Difference, II}
+
+    Let $A, B \in \CalF$ and $B \subseteq A$, then $\mu(A \setminus B) = \mu(A) - \mu(B)$.
+
+\end{proposition}
+
+\begin{proposition}{}{Complement of Limit Inferior/Superior}
+
+    Let $(A_n)_{n=1}^{\infty}$ be a sequence of sets in $\CalF$, then:
+
+        \begin{enumerate}[(i)]
+            \item
+                \begin{align*}
+                    \left(\liminf_{n \to \infty} A_n\right)^C = \limsup_{n \to \infty} A_n^C
+                \end{align*}
+            \item
+                \begin{align*}
+                    \left(\limsup_{n \to \infty} A_n\right)^C = \liminf_{n \to \infty} A_n^C
+                \end{align*}
+        \end{enumerate}
+
+\end{proposition}
+
+\begin{exercise}{Ws 2, 1}{Limit Inferior/Superior Properties}
+
+       Let $(A_n)_{n=1}^{\infty}$ be a sequence of sets in $\CalF$, then:
+
+        \begin{enumerate}[(i)]
+            \item
+                \begin{align*}
+                    \liminf_{n \to \infty} A_n \coloneqq \bigcup_{n = 1}^{\infty}\bigcap_{k = n}^{\infty} A_k
+                \end{align*}
+
+                is the set of those $\omega$ that are \emph{in all but finitely many $A_n$}, i.e. that uphold the property $A_n$ captures for all except a finite amount of values of $n$.
+            \item
+                \begin{align*}
+                    \limsup_{n \to \infty} A_n \coloneqq \bigcap_{n = 1}^{\infty}\bigcup_{k = n}^{\infty} A_k
+                \end{align*}
+
+                is the set of those $\omega$ that are \emph{in infinitely many $A_n$}, i.e. that uphold the property $A_n$ captures for an infinite amount of values of $n$.
+        \end{enumerate} 
+
+\end{exercise}
+
+\begin{proposition}{}{Continuous Implies Borel-Measurability}
+
+    Let $f: \mathbb{R} \to \overline{\mathbb{R}}$ be a \emph{continuous} function. Then $f$ is Borel-measurable.
+
+\end{proposition}
+
+\begin{proposition}{}{Countable Sets}
+
+    Every countable subset of $\mathbb{R}$ is Borel-measurable.
+
+\end{proposition}
