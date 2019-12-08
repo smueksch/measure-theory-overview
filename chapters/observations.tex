@@ -214,3 +214,35 @@
         \end{align*}
 
 \end{observation}
+
+\begin{observation}{}{Distribution Function as Expectation}
+
+    Let $X$ be a random variable and $F_X$ its distribution function. Then:
+
+        \begin{align*}
+            F_X(a) = P(X \leq a) = \int_{\Omega} \Indicator{X \leq a} \, dP = E\Indicator{X \leq a}.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Distribution Function as Expectation, II}
+
+    Let $X$ be a random variable and $F_X$ its distribution function. Then:
+
+        \begin{align*}
+            F_X(x + a) - F_X(x) = E\Indicator{x < X \leq x + a}.
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Tightening/Relaxing Expectations}
+
+    Let $X$ be a random variable and $\lambda \in \mathbb{R}$. Then the following  holds:
+
+        \begin{align*}
+            EX \geq E(\Indicator{X \geq \lambda}X) \geq E(\Indicator{X \geq \lambda}\lambda).
+        \end{align*}
+
+    Left-to-right can be thought of as ``tightening'' the constraints and thus (potentially) decreasing the area that is integrated over, right-to-left as ``loosening'' and thus (potentially) increasing the area that is integrated over.
+
+\end{observation}
