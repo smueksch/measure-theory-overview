@@ -762,6 +762,28 @@
 
 \section{Independence of Events and Random Variables}
 
+\begin{theorem}{6.3}{Monotone Class Theorem}
+
+    Let $\Pi$ be a $\pi$-system contained in a $\lambda$-system $\Lambda$. Then $\sigma(\Pi)$ is contained in $\Lambda$.
+
+    \Hint TODO
+
+\end{theorem}
+
+\begin{proposition}{6.4}{Extending $\pi$-System Independence}
+
+    Let $C_1$ and $C_2$ be two \emph{independent} $\pi$-systems, i.e.
+
+        \begin{align*}
+            P(A \cap B) = P(A)P(B) \quad \forall A \in C_1, B \in C_2,
+        \end{align*}
+
+    then the \SigmaAlgebra s $\sigma(C_1)$ and $\sigma(C_2)$ are also independent.
+
+    \Hint TODO
+
+\end{proposition}
+
 \begin{theorem}{6.7}{Fubini-Tonelli Theorem}
 
     Let $(\Omega_i, \CalF_i, \mu_i)$, for $i = 1,2$, be measure spaces and $(\Omega, \CalF, \mu)$ be the product measure space of the two, i.e. $\Omega = \Omega_1 \times \Omega_2$, $\CalF = \CalF_i \otimes \CalF_2$ and $\mu = \mu_1 \otimes \mu_2$. Let $f: \Omega \to \overline{\mathbb{R}}$ be a \emph{non-negative} $\CalF$-measurable function. If $\mu_i$, for $i = 1,2$, are \emph{finite measures} on $\Omega_i$, for $i = 1,2$, respectively, then the following iterated integrals are well-defined and:
@@ -777,6 +799,25 @@
         \end{align*}
 
 \end{theorem}
+
+\begin{lemma}{6.9}{Borel-Cantelli (Full)}
+
+    Let $(A_n)_{n=1}^{\infty}$ be a sequence of sets and set
+
+        \begin{align*}
+            A \coloneqq \limsup_{n \to \infty} A_n \coloneqq \bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty} A_k,
+        \end{align*}
+
+    then the following statements holds:
+
+        \begin{enumerate}[(i)]
+            \item If $\sum_{n=1}^{\infty} \mu(A_n) < \infty$, then $\mu(A) = 0$.
+            \item If all $A_n$ are \emph{jointly independent} and $\sum_{n=1}^{\infty} \P(A_n) = \infty$, then $\P(A) = 1$.
+        \end{enumerate}
+
+    \Hint TODO
+    
+\end{lemma}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Conditional Expectation %
@@ -1000,6 +1041,26 @@
 \begin{definition}{}{Finite Second Moment}
 
     Let $X$ be a random variable. Then $X$ has \emph{finite second moment} if $EX^2 < \infty$.
+
+\end{definition}
+
+\subsection{Independence of Events and Random Variables}
+
+\begin{definition}{6.5}{$\lambda$-system}
+
+    Let $\Lambda$ be a family o subsets of $\Omega$. Then $\Lambda$ is a $\lambda$-system, if it satisfies all of the following properties:
+
+        \begin{enumerate}[(i)]
+            \item (Contains whole set) $\Omega \in \Lambda$;
+            \item (Closed under Subset Set Subtraction) if $A, B \in \Lambda$, such that $B \subset A$, then $A \setminus B \in \Lambda$;
+            \item (Closed under Disjoint Union) if $(A_n)_{n=1}^{\infty}$ is a \emph{pairwise disjoint} sequence, i.e. $A_i \cap A_j = \emptyset$ for $i \neq j$, of subsets, such that $A_i \in \Lambda$ for $i = 1,2,\hdots$, then $\bigcup_{n=1}^{\infty} \in \Lambda$.
+        \end{enumerate}
+
+\end{definition}
+
+\begin{definition}{6.6}{$\pi$-system}
+
+    Let $\Pi$ be a family of subsets of $\Omega$. Then $\Pi$ is a $\pi$-system, if it is closed under finite intersections, i.e. $A,B \in \Pi$ $\Rightarrow$ $A \cap B \in \Pi$.
 
 \end{definition}
 
