@@ -247,3 +247,23 @@
     Left-to-right can be thought of as ``tightening'' the constraints and thus (potentially) decreasing the area that is integrated over, right-to-left as ``loosening'' and thus (potentially) increasing the area that is integrated over.
 
 \end{observation}
+
+\begin{observation}{}{Identical Distribution Giving Equal Probability}
+
+    Let $(X_n)_{n=1}^{\infty}$ be a sequence of \emph{independent, identically distributed} random variables. Let $A_n$ be an event depending on $X_n$, for instance $A_n \coloneqq \{ X_n \geq K \}$ for some $K \in \mathbb{R}$, then all $P(A_n)$ are equal due to $X_n$ being identically distributed, i.e.
+
+        \begin{align*}
+            P(A_n) = p \quad \textrm{for } n \geq 1, p \in [0,1].
+        \end{align*}
+
+\end{observation}
+
+\begin{observation}{}{Identical Distribution \& Infinite Sum}
+
+    Let $(X_n)_{n=1}^{\infty}$ be a sequence of \emph{independent, identically distributed} random variables. Let $A_n$ be an event depending on $X_n$, for instance $A_n \coloneqq \{ X_n \geq K \}$ for some $K \in \mathbb{R}$, then 
+
+        \begin{align*}
+            \sum_{n=1}^{\infty} P(A_n) < \infty \Rightarrow P(A_n) = 0 \textrm{ for } n \geq 1.
+        \end{align*}
+
+\end{observation}

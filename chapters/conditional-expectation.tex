@@ -21,3 +21,33 @@
     for any $A \in \CalG$, then $Z \geq 0$ (a.s.).
 
 \end{lemma}
+
+\begin{theorem}{8.6}{Properties of Conditional Expectations}
+
+    Let $X$ be a random variable and $\CalG \subset \CalF$ be a \SigmaAlgebra. Then the following properties hold (under the given conditions):
+
+        \begin{enumerate}[(i)]
+            \setlength{\parskip}{0em}
+            \item ``Adding/Dropping Conditional Expectation'':
+
+                \begin{align*}
+                    EX = E(E(X|\CalG));
+                \end{align*}
+            \item ``Tower Rule'': Let $\mathcal{H} \subset \CalF$ be a \SigmaAlgebra, such that $\mathcal{H}$ \emph{contains} $\CalG$, then:
+
+                \begin{align*}
+                    E(E(X|\mathcal{H})|\CalG) = E(X|\CalG);
+                \end{align*}
+            \item ``Pulling/Pushing Random Variables Through'': Let $Y$ be a random variable, such that $Y$ is $\CalG$-measurable \emph{and} $E|XY| < \infty$, then:
+
+                \begin{align*}
+                    E(XY|\CalG) = YE(X|\CalG);
+                \end{align*}
+            \item ``Independence of Conditional'': Let $X$ and $\CalG$ be independent, i.e. $\sigma(X)$ and $\CalG$ are independent, then:
+
+                \begin{align*}
+                    E(X|\CalG) = EX.
+                \end{align*}
+        \end{enumerate}
+
+\end{theorem}
