@@ -98,6 +98,25 @@
 
 \end{theorem}
 
+\begin{theorem}{3.14}{Lebesgue Integral as Riemann Integral}
+
+    Let $f: \mathbb{R} \to \mathbb{R}$ be a Borel-function such that:
+
+        \begin{enumerate}[(i)]
+            \item the Riemann integral $\int_{-\infty}^{\infty} f(x) \, dx$ exists and
+            \item the Riemann integral $\int_{-\infty}^{\infty} |f(x)| \, dx < \infty$, i.e. is finite,
+        \end{enumerate}
+
+    then the Lebesgue integral $\int_{\mathbb{R}} f(x) \lambda(dx)$ \emph{exists} and
+
+        \begin{align*}
+            \int_{\mathbb{R}} f(x) \lambda(dx) = \int_{-\infty}^{\infty} f(x) \, dx,
+        \end{align*}
+
+    i.e. the Lebesgue integral is equal to the Riemann integral.
+
+\end{theorem}
+
 \begin{exercise}{3.15}{}
 
     Let $\nu$ be a measure that is absolutely continuous with respect to measure $\mu$ and density $g$, then $\mu(g < 0) = 0$. Moreover, $\nu$ is a probability measure $\Leftrightarrow$ $g \geq 0$ $\mu$-a.e. and $\int_{\Omega} g \, d\mu = 1$.

@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conditional Expectation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\section{Conditional Expectation}
+
+\begin{exercise}{8.1}{}
+
+    Let $\CalG \coloneqq \{\emptyset, \Omega\}$, i.e. the trivial \SigmaAlgebra. Then if random variable $Y$ is $\CalG$-measurable, then $Y$ is constant.
+
+\end{exercise}
+
+\begin{lemma}{8.2}{}
+
+    Let $Z$ be a $\CalG$-measurable random variable such that:
+
+        \begin{align*}
+            \int_{A} Z \, dP \geq 0 \iff E(\Indicator{A}Z) \geq 0,
+        \end{align*}
+
+    for any $A \in \CalG$, then $Z \geq 0$ (a.s.).
+
+\end{lemma}

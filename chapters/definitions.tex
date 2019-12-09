@@ -265,9 +265,15 @@
 
 \end{definition}
 
-\begin{definition}{6.6}{$\pi$-system}
+\begin{definition}{}{$\pi$-system}
 
     Let $\Pi$ be a family of subsets of $\Omega$. Then $\Pi$ is a $\pi$-system, if it is closed under finite intersections, i.e. $A,B \in \Pi$ $\Rightarrow$ $A \cap B \in \Pi$.
+
+\end{definition}
+
+\begin{definition}{Ws 5, 1}{$\sigma$-Finite Measure}
+
+    Let $\mu$ be a measure, then $\mu$ is called \emph{$\sigma$-finite} if there exists an increasing sequence $(\Omega_n)_{n=1}^{\infty}$ in $\CalF$, such that $\mu(\Omega_n) < \infty$ for all $n \geq 1$ and $\bigcap_{n=1}^{\infty} \Omega_n = \Omega$.
 
 \end{definition}
 
@@ -277,8 +283,27 @@
 
 \subsection{Conditional Expectation}
 
-\begin{definition}{}{Sub-$\sigma$-Algebra Measurable}
+\begin{definition}{8.1}{Sub-$\sigma$-Algebra Measurable}
 
-    Let $Y$ be a random variable TODO FINISH
+    Let $Y$ be a random variable and $\CalG \subset \CalF$ be a \SigmaAlgebra. Then $Y$ is $\CalG$-measurable if $Y^{-1}(F) \in \CalG$ for any $F \in \mathcal{B}(\mathbb{R})$.
+
+\end{definition}
+
+\begin{definition}{8.2}{Conditional Expectation}
+
+    Let $X,Y$ be random variables such that $E|X| < \infty$ and $\CalG \subset \CalF$ be a \SigmaAlgebra. Let $Y$ satisfy the following properties:
+
+        \begin{enumerate}[(i)]
+            \setlength{\parskip}{0em}
+            \item $Y$ is $\CalG$-measurable and
+            \item for any $A \in \CalG$:
+
+                    \begin{align*}
+                        \int_{A} Y \, dP = \int_{A} X \, dP
+                        \iff E(\Indicator{A}Y) = E(\Indicator{A}X),
+                    \end{align*}
+        \end{enumerate}
+
+    then $Y$ is called the \emph{conditional expectation} with respect of $\CalG$ of $X$ and we write $Y = E(X|\CalG)$.
 
 \end{definition}

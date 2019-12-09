@@ -60,3 +60,13 @@
     \Hint (i) provided in general case. (ii) Prove $P((\limsup_{n \to \infty} A_n)^C) = 1$, define $B_n = \bigcap_{k=n}^{\infty} A_k^C$ and show that for a given $P(B_n) = P(\lim_{m \to \infty} \bigcap_{k=n}^{m} A_k) = 0$ using independence and observation that $1 - P(A) \leq e^{-P(A)}$. Finally, use \emph{sub}-$\sigma$-additivity for $P(\bigcup_{n=1}^{\infty} B_n)$. \emph{Do not} attempt to argue through increasing sequences.
     
 \end{lemma}
+
+\begin{exercise}{}{Pulling Sum Through Variance}
+
+    Let $(X_i)_{i=1}^{\infty}$ be a sequence of \emph{pairwise independent} random variables. Assume that $EX_i^2 < \infty$ for $i=1,2,\hdots,n$, then
+
+        \begin{align*}
+            \mathrm{Var}\left(\sum_{i=1}^n X_i\right) = \sum_{i=1}^n \mathrm{Var}\left(X_i\right).
+        \end{align*}
+
+\end{exercise}
